@@ -20,7 +20,7 @@ const Dex = () => {
       <ListBoxBox>
         {list.map((pokemon) => {
           return (
-            <ListBox>
+            <ListBox key={pokemon.id}>
               <img src={pokemon.img_url} alt="" />
               <p>{pokemon.id}</p>
               <p>{pokemon.korean_name}</p>
