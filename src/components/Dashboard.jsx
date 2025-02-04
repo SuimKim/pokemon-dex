@@ -2,18 +2,10 @@ import React from "react";
 import styled from "styled-components";
 import PokemonCard from "./PokemonCard";
 
-const ListBox = styled.div`
-  border: 1px solid black;
-  margin: 10px;
-  min-height: 100px;
-  width: 15%;
-  max-width: 200px;
-`;
-
 const ListBoxBox = styled.div`
-  display: flex;
-  border: 1px solid black;
-  position: relative;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 15%);
+  justify-content: space-evenly;
 `;
 
 const Dashboard = ({ myPokemon, setMyPokemon }) => {
@@ -22,7 +14,7 @@ const Dashboard = ({ myPokemon, setMyPokemon }) => {
     setMyPokemon(deletedPokemon);
   };
 
-  // console.log("myPokemon", myPokemon);
+  console.log("myPokemon", myPokemon);
   return (
     <>
       <h3>선택포켓몬</h3>
@@ -30,13 +22,12 @@ const Dashboard = ({ myPokemon, setMyPokemon }) => {
       <ListBoxBox>
         {myPokemon.map((pokemon) => {
           return (
-            <ListBox key={pokemon.id}>
-              <PokemonCard
-                list={pokemon}
-                handlerBtn={removeMyPokemon}
-                label="삭제"
-              />
-            </ListBox>
+            <PokemonCard
+              key={pokemon.id}
+              list={pokemon}
+              handlerBtn={removeMyPokemon}
+              label="삭제"
+            />
           );
         })}
       </ListBoxBox>

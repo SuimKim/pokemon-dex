@@ -1,21 +1,11 @@
 import React from "react";
 import PokemonCard from "./PokemonCard";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
 
 const ListBoxBox = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, 15%);
   justify-content: space-evenly;
-`;
-
-const ListBox = styled.div`
-  border: 1px solid black;
-  margin: 10px;
-  min-height: 100px;
-  &:hover {
-    cursor: pointer;
-  }
 `;
 
 const PokemonList = ({ list, myPokemon, setMyPokemon }) => {
@@ -41,15 +31,12 @@ const PokemonList = ({ list, myPokemon, setMyPokemon }) => {
       <ListBoxBox>
         {list.map((pokemon) => {
           return (
-            <Link key={pokemon.id} to={`/pokemon-detail?id=${pokemon.id}`}>
-              <ListBox>
-                <PokemonCard
-                  list={pokemon}
-                  handlerBtn={selectMyPokemon}
-                  label="추가"
-                />
-              </ListBox>
-            </Link>
+            <PokemonCard
+              key={pokemon.id}
+              list={pokemon}
+              handlerBtn={selectMyPokemon}
+              label="추가"
+            />
           );
         })}
       </ListBoxBox>
