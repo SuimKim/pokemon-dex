@@ -9,6 +9,12 @@ const ListBoxBox = styled.div`
   justify-content: space-evenly;
 `;
 
+const ListBox = styled.div`
+  border: 1px solid black;
+  margin: 10px;
+  min-height: 100px;
+`;
+
 const PokemonList = ({ list, myPokemon, setMyPokemon }) => {
   const selectMyPokemon = (id) => {
     if (myPokemon.length >= 6) {
@@ -23,8 +29,6 @@ const PokemonList = ({ list, myPokemon, setMyPokemon }) => {
     }
 
     const selectedPokemon = list.find((a) => a.id === id);
-    const changedPokemonList = [...myPokemon];
-
     setMyPokemon([...myPokemon, selectedPokemon]);
   };
 
@@ -34,11 +38,14 @@ const PokemonList = ({ list, myPokemon, setMyPokemon }) => {
       <ListBoxBox>
         {list.map((pokemon) => {
           return (
-            <PokemonCard
-              list={pokemon}
-              key={pokemon.id}
-              selectMyPokemon={selectMyPokemon}
-            />
+            <ListBox>
+              <PokemonCard
+                list={pokemon}
+                key={pokemon.id}
+                handlerBtn={selectMyPokemon}
+                label="추가"
+              />
+            </ListBox>
           );
         })}
       </ListBoxBox>
