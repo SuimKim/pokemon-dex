@@ -10,9 +10,11 @@ const ListBoxBox = styled.div`
 `;
 
 const PokemonList = ({ list, myPokemon, setMyPokemon }) => {
-  console.log("myPokemon", myPokemon);
-
   const selectMyPokemon = (id) => {
+    if (myPokemon.length >= 6) {
+      alert("6초과");
+      return;
+    }
     const existingPokemon = myPokemon.find((pokemon) => pokemon.id === id);
 
     if (existingPokemon) {
@@ -21,6 +23,8 @@ const PokemonList = ({ list, myPokemon, setMyPokemon }) => {
     }
 
     const selectedPokemon = list.find((a) => a.id === id);
+    const changedPokemonList = [...myPokemon];
+
     setMyPokemon([...myPokemon, selectedPokemon]);
   };
 

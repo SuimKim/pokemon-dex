@@ -1,5 +1,4 @@
 import React from "react";
-import { useState } from "react";
 import styled from "styled-components";
 import PokemonCard from "./PokemonCard";
 
@@ -16,6 +15,7 @@ const ListBoxBox = styled.div`
 `;
 
 const Dashboard = ({ myPokemon, setMyPokemon }) => {
+  console.log("myPokemon", myPokemon);
   return (
     <>
       <h3>선택포켓몬</h3>
@@ -23,13 +23,6 @@ const Dashboard = ({ myPokemon, setMyPokemon }) => {
         {myPokemon.map((pokemon) => {
           return <PokemonCard list={pokemon} key={pokemon.id} />;
         })}
-
-        {/* <PokemonCard list={myPokemon[0]} />
-        <PokemonCard list={myPokemon[1]} />
-        <PokemonCard list={myPokemon[2]} />
-        <PokemonCard list={myPokemon[3]} />
-        <PokemonCard list={myPokemon[4]} />
-        <PokemonCard list={myPokemon[5]} /> */}
       </ListBoxBox>
     </>
   );
