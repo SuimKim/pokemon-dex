@@ -3,15 +3,14 @@ import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 const BtnDex = styled.button`
-  position: absolute;
+  /* position: absolute; */
   height: 5vw;
-  width: 25vw;
+  width: 30%;
   font-size: 2vw;
-  top: 30vw;
-  right: 13vw;
   background-color: white;
   border: 5px solid #3466af;
-
+  display: block;
+  margin: 2.5vw auto 1.5vw auto;
   &:hover {
     cursor: pointer;
     border: 5px solid #ffcb05;
@@ -19,16 +18,17 @@ const BtnDex = styled.button`
 `;
 
 const Logo = styled.img`
-  position: absolute;
+  display: flex;
   width: 60vw;
-  right: 5vw;
+  max-height: 400px;
+  margin: 2vw auto 0 auto;
+  box-sizing: border-box;
 `;
 
 const Ball = styled.img`
-  position: absolute;
-  width: 55vw;
-  top: 16vw;
-  left: 0;
+  width: 60vw;
+  max-width: 1000px;
+  display: inline-block;
 `;
 
 const Home = () => {
@@ -37,15 +37,14 @@ const Home = () => {
   return (
     <>
       <Logo src="./src/assets/logo.svg" alt="" />
-      <Ball src="./src/assets/main-ball.png" />
-
       <BtnDex
         onClick={() => {
           navigate("/dex");
         }}
       >
-        Go POKEMON Book!
+        Open POKEMON Book!
       </BtnDex>
+      <Ball src="./src/assets/main-ball.png" />
     </>
   );
 };
