@@ -17,12 +17,12 @@ const ListBoxBox = styled.div`
 `;
 
 const Dashboard = ({ myPokemon, setMyPokemon }) => {
-  const handleDelete = (id) => {
+  const removeMyPokemon = (id) => {
     const deletedPokemon = myPokemon.filter((a) => a.id !== id);
     setMyPokemon(deletedPokemon);
   };
 
-  console.log("myPokemon", myPokemon);
+  // console.log("myPokemon", myPokemon);
   return (
     <>
       <h3>선택포켓몬</h3>
@@ -30,11 +30,10 @@ const Dashboard = ({ myPokemon, setMyPokemon }) => {
       <ListBoxBox>
         {myPokemon.map((pokemon) => {
           return (
-            <ListBox>
+            <ListBox key={pokemon.id}>
               <PokemonCard
                 list={pokemon}
-                key={pokemon.id}
-                handlerBtn={handleDelete}
+                handlerBtn={removeMyPokemon}
                 label="삭제"
               />
             </ListBox>

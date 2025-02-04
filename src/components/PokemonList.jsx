@@ -1,7 +1,7 @@
 import React from "react";
 import PokemonCard from "./PokemonCard";
 import styled from "styled-components";
-import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const ListBoxBox = styled.div`
   display: grid;
@@ -13,6 +13,9 @@ const ListBox = styled.div`
   border: 1px solid black;
   margin: 10px;
   min-height: 100px;
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 const PokemonList = ({ list, myPokemon, setMyPokemon }) => {
@@ -38,14 +41,15 @@ const PokemonList = ({ list, myPokemon, setMyPokemon }) => {
       <ListBoxBox>
         {list.map((pokemon) => {
           return (
-            <ListBox>
-              <PokemonCard
-                list={pokemon}
-                key={pokemon.id}
-                handlerBtn={selectMyPokemon}
-                label="추가"
-              />
-            </ListBox>
+            <Link key={pokemon.id} to={`/pokemon-detail?id=${pokemon.id}`}>
+              <ListBox>
+                <PokemonCard
+                  list={pokemon}
+                  handlerBtn={selectMyPokemon}
+                  label="추가"
+                />
+              </ListBox>
+            </Link>
           );
         })}
       </ListBoxBox>
