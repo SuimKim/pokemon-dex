@@ -6,7 +6,8 @@ import { useState } from "react";
 
 const Dex = () => {
   const list = MOCK_DATA;
-  const [myPokemon, setMyPokemon] = useState([]);
+  const SET_DATA = Array.from({ length: 6 }, () => "");
+  const [myPokemon, setMyPokemon] = useState(SET_DATA);
   return (
     <>
       <h1>dex</h1>
