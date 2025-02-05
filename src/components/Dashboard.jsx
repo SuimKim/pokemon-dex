@@ -1,45 +1,14 @@
 import React from "react";
-import styled from "styled-components";
 import PokemonCard from "./PokemonCard";
 import { useContext } from "react";
 import { PokemonContext } from "../contexts/PokemonContext";
+import {
+  DashBoardBox,
+  DashLogoBox,
+  ListBox,
+  MyPokemonBox,
+} from "../style/DashBoardStyledComponents";
 
-const MyPokemonBox = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-  gap: 2vw;
-  width: 100%;
-  box-sizing: border-box;
-  padding: 3%;
-`;
-
-const ListBox = styled.div`
-  img {
-    width: 100%;
-    border-radius: 30px;
-  }
-`;
-
-const DashBoardBox = styled.div`
-  width: 90%;
-  justify-items: center;
-  border-radius: 50px;
-  /* border: 3px solid #3466af; */
-
-  background-color: #c3dbe3;
-`;
-
-const DashLogoBox = styled.div`
-  width: 40%;
-  background-color: #c3dbe3;
-  border-top-right-radius: 30px;
-  border-top-left-radius: 30px;
-  box-sizing: border-box;
-  padding: 1% 1% 0 1%;
-  img {
-    width: 100%;
-  }
-`;
 const Dashboard = () => {
   const { myPokemon, setMyPokemon } = useContext(PokemonContext);
   const removeMyPokemon = (id) => {

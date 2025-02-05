@@ -1,21 +1,9 @@
 import React from "react";
 import PokemonCard from "./PokemonCard";
-import styled from "styled-components";
 import MOCK_DATA from "../mockData";
 import { useContext } from "react";
 import { PokemonContext } from "../contexts/PokemonContext";
-
-const PokemonListBox = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 15%));
-  row-gap: 2vw;
-  justify-content: space-evenly;
-  width: 90%;
-  padding: 3%;
-  box-sizing: border-box;
-  background-color: #ffe6c6;
-  border-radius: 50px;
-`;
+import { PokemonListBox } from "../style/ListStyledComponents";
 
 const PokemonList = () => {
   const POKE_DATA = MOCK_DATA;
