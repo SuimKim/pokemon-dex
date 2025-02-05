@@ -1,9 +1,8 @@
 import React from "react";
-import MOCK_DATA from "../mockData";
 import PokemonList from "../components/PokemonList";
 import Dashboard from "../components/Dashboard";
-import { useState } from "react";
 import styled from "styled-components";
+import { PokemonProvider } from "../contexts/PokemonContext";
 
 const Logo = styled.img`
   /* border: 1px solid black; */
@@ -32,26 +31,20 @@ const InnerLine = styled.hr`
 `;
 
 const Dex = () => {
-  const list = MOCK_DATA;
-  const SET_DATA = Array.from({ length: 6 }, () => "");
-  const [myPokemon, setMyPokemon] = useState(SET_DATA);
+  // const SET_DATA = Array.from({ length: 6 }, () => "");
+  // const [myPokemon, setMyPokemon] = useState(SET_DATA);
   return (
-    <>
-      <Logo src="./src/assets/img/logo.svg" alt="" />
+    <PokemonProvider>
+      <Logo src="./src/assets/img/logo.svg" alt="" />{" "}
       <BackBox>
-        <Dashboard
-          list={list}
-          myPokemon={myPokemon}
-          setMyPokemon={setMyPokemon}
-        />
+        <Dashboard />
         <InnerLine />
-        <PokemonList
-          list={list}
-          myPokemon={myPokemon}
-          setMyPokemon={setMyPokemon}
-        />
+        <PokemonList />
+        {/* <Dashboard myPokemon={myPokemon} setMyPokemon={setMyPokemon} />
+        <InnerLine />
+        <PokemonList myPokemon={myPokemon} setMyPokemon={setMyPokemon} /> */}
       </BackBox>
-    </>
+    </PokemonProvider>
   );
 };
 

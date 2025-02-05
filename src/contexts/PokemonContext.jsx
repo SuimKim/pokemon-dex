@@ -1,6 +1,5 @@
-// 프로바이더 하나 만들어서 바깥으로 내보냄 ->
-
 import { createContext, useState } from "react";
+import PropTypes from "prop-types";
 
 export const PokemonContext = createContext();
 
@@ -9,8 +8,11 @@ export function PokemonProvider({ children }) {
   const [myPokemon, setMyPokemon] = useState(SET_DATA);
 
   return (
-    <PokemonProvider.Provider value={(myPokemon, setMyPokemon)}>
+    <PokemonContext.Provider value={{ myPokemon, setMyPokemon }}>
       {children}
-    </PokemonProvider.Provider>
+    </PokemonContext.Provider>
   );
 }
+PokemonProvider.propTypes = {
+  children: PropTypes.node.isRequired,
+};

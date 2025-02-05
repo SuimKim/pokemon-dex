@@ -77,8 +77,9 @@ const Btn = styled.button`
     background-color: #ffcb05;
   }
 `;
-const PokemonCard = ({ list, handlerBtn, label }) => {
-  const { id, img_url, korean_name } = list;
+const PokemonCard = ({ item, handlerBtn, label }) => {
+  const { id, img_url, korean_name } = item;
+
   const navigate = useNavigate();
 
   return (

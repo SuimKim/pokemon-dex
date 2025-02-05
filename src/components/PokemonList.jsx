@@ -1,6 +1,9 @@
 import React from "react";
 import PokemonCard from "./PokemonCard";
 import styled from "styled-components";
+import MOCK_DATA from "../mockData";
+import { useContext } from "react";
+import { PokemonContext } from "../contexts/PokemonContext";
 
 const PokemonListBox = styled.div`
   display: grid;
@@ -14,7 +17,10 @@ const PokemonListBox = styled.div`
   border-radius: 50px;
 `;
 
-const PokemonList = ({ list, myPokemon, setMyPokemon }) => {
+const PokemonList = () => {
+  const POKE_DATA = MOCK_DATA;
+  const { myPokemon, setMyPokemon } = useContext(PokemonContext);
+
   const selectMyPokemon = (id) => {
     const firstEmptyIndex = myPokemon.indexOf("");
     if (firstEmptyIndex === -1) {
@@ -28,7 +34,7 @@ const PokemonList = ({ list, myPokemon, setMyPokemon }) => {
       return;
     }
 
-    const selectedPokemon = list.find((a) => a.id === id); // 선택한 포켓몬
+    const selectedPokemon = POKE_DATA.find((a) => a.id === id); // 선택한 포켓몬
 
     const newMyPokemon = [...myPokemon]; // 새로운 myPokemon 배열을 만들어서 기존 배열 복사
     newMyPokemon[firstEmptyIndex] = selectedPokemon; // 새로 만든 배열의 첫번째 비어있는 인덱스를 선택한 포켓몬으로 교체
@@ -39,11 +45,11 @@ const PokemonList = ({ list, myPokemon, setMyPokemon }) => {
   return (
     <>
       <PokemonListBox>
-        {list.map((pokemon) => {
+        {POKE_DATA.map((pokemon) => {
           return (
             <PokemonCard
               key={pokemon.id}
-              list={pokemon}
+              item={pokemon}
               handlerBtn={selectMyPokemon}
               label="추가"
             />

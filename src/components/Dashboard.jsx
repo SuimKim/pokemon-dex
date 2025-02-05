@@ -1,6 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import PokemonCard from "./PokemonCard";
+import { useContext } from "react";
+import { PokemonContext } from "../contexts/PokemonContext";
 
 const MyPokemonBox = styled.div`
   display: grid;
@@ -38,7 +40,8 @@ const DashLogoBox = styled.div`
     width: 100%;
   }
 `;
-const Dashboard = ({ myPokemon, setMyPokemon }) => {
+const Dashboard = () => {
+  const { myPokemon, setMyPokemon } = useContext(PokemonContext);
   const removeMyPokemon = (id) => {
     const deletedPokemon = myPokemon.map((a) => {
       return a.id === id ? "" : a;
@@ -50,8 +53,6 @@ const Dashboard = ({ myPokemon, setMyPokemon }) => {
 
     setMyPokemon(deletedPokemon);
   };
-
-  console.log("myPokemon", myPokemon);
 
   return (
     <>
@@ -68,7 +69,7 @@ const Dashboard = ({ myPokemon, setMyPokemon }) => {
             ) : (
               <PokemonCard
                 key={myPokemon.id}
-                list={pokemon}
+                item={pokemon}
                 handlerBtn={removeMyPokemon}
                 label="삭제"
               />
