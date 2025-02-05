@@ -2,21 +2,42 @@ import React from "react";
 import styled from "styled-components";
 import PokemonCard from "./PokemonCard";
 
-const ListBoxBox = styled.div`
+const MyPokemonBox = styled.div`
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  column-gap: 1vw;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 2vw;
   width: 100%;
   box-sizing: border-box;
-  border: 1px solid black;
+  padding: 3%;
 `;
 
 const ListBox = styled.div`
-  border: 1px solid black;
-  margin: 10px;
-  height: 250px;
+  img {
+    width: 100%;
+    border-radius: 30px;
+  }
 `;
 
+const DashBoardBox = styled.div`
+  width: 90%;
+  justify-items: center;
+  border-radius: 50px;
+  /* border: 3px solid #3466af; */
+
+  background-color: #c3dbe3;
+`;
+
+const DashLogoBox = styled.div`
+  width: 40%;
+  background-color: #c3dbe3;
+  border-top-right-radius: 30px;
+  border-top-left-radius: 30px;
+  box-sizing: border-box;
+  padding: 1% 1% 0 1%;
+  img {
+    width: 100%;
+  }
+`;
 const Dashboard = ({ myPokemon, setMyPokemon }) => {
   const removeMyPokemon = (id) => {
     const deletedPokemon = myPokemon.map((a) => {
@@ -24,7 +45,6 @@ const Dashboard = ({ myPokemon, setMyPokemon }) => {
     });
 
     const firstEmptyIndex = deletedPokemon.indexOf("");
-
     const item = deletedPokemon.splice(firstEmptyIndex, 1);
     deletedPokemon.splice(6, 0, item[0]);
 
@@ -35,19 +55,27 @@ const Dashboard = ({ myPokemon, setMyPokemon }) => {
 
   return (
     <>
-      <h3>선택포켓몬</h3>
-      <ListBoxBox>
-        {myPokemon.map((pokemon) => {
-          return (
-            <PokemonCard
-              key={myPokemon.id}
-              list={pokemon}
-              handlerBtn={removeMyPokemon}
-              label="삭제"
-            />
-          );
-        })}
-      </ListBoxBox>
+      <DashLogoBox>
+        <img src="./src/assets/img/dash-logo.png" alt="" />
+      </DashLogoBox>
+      <DashBoardBox>
+        <MyPokemonBox>
+          {myPokemon.map((pokemon) => {
+            return !pokemon.id ? (
+              <ListBox>
+                <img src="./src/assets/img/card-back.png" alt="" />
+              </ListBox>
+            ) : (
+              <PokemonCard
+                key={myPokemon.id}
+                list={pokemon}
+                handlerBtn={removeMyPokemon}
+                label="삭제"
+              />
+            );
+          })}
+        </MyPokemonBox>
+      </DashBoardBox>
     </>
   );
 };

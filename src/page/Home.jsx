@@ -36,7 +36,7 @@ const Home = () => {
 
   return (
     <>
-      <Logo src="./src/assets/logo.svg" alt="" />
+      <Logo src="./src/assets/img/logo.svg" alt="" />
       <BtnDex
         onClick={() => {
           navigate("/dex");
@@ -44,7 +44,7 @@ const Home = () => {
       >
         Open POKEMON Book!
       </BtnDex>
-      <Ball src="./src/assets/main-ball.png" />
+      <Ball src="./src/assets/img/main-ball.png" />
     </>
   );
 };
