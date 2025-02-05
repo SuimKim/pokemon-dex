@@ -1,5 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { Ball, BtnDex, Logo } from "../style/HomeStyledComponents";
+
 import styled from "styled-components";
 
 const ImgBox = styled.div`
@@ -11,11 +13,14 @@ const BtnDex = styled.button`
   display: inline-block;
   height: 50px;
 `;
+
 const Home = () => {
   const navigate = useNavigate();
 
   return (
     <>
+      <Logo src="./src/assets/img/logo.svg" alt="" />
+
       <ImgBox>
         <img src="./src/assets/pokemon_logo.png" alt="" />
       </ImgBox>
@@ -25,7 +30,7 @@ const Home = () => {
           navigate("/dex");
         }}
       >
-        포켓몬 도감으로 이동
+        Open POKEMON Book!
       </BtnDex>
     </>
   );
