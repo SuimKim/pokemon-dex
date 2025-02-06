@@ -1,6 +1,6 @@
 import React from "react";
 import PokemonList from "../components/PokemonList";
-import Dashboard from "../components/DashBoard";
+import Dashboard from "../components/Dashboard";
 import { BackBox, InnerLine, Logo } from "../style/DexStyledComponents";
 import { store } from "../redux/store";
 import { Provider } from "react-redux";

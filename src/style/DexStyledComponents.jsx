@@ -15,7 +15,7 @@ export const BackBox = styled.div`
   width: 90%;
   /* border: 1px solid black; */
   justify-items: center;
-  padding: 2% 0 5% 0;
+  padding: 5% 0 5% 0;
   background-color: white;
   position: relative;
 `;

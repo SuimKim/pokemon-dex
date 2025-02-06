@@ -57,20 +57,23 @@ export const BtnBox = styled.div`
   padding: 5px;
   /* margin-top: px; */
   width: 100%;
+  justify-content: right;
 `;
 export const Btn = styled.button`
   position: relative;
   width: 50%;
   height: 35px;
-  background-color: white;
+  background-color: #ffcb05;
   border: 2px solid #3466af;
   border-radius: 20px;
   z-index: 1;
   margin: 10px;
   box-sizing: border-box;
-  transition: all 0.3s;
+
   &:hover {
     cursor: pointer;
-    background-color: #ffcb05;
+    background-color: #3466af;
+    color: white;
+    transition: all 0.3s;
   }
 `;

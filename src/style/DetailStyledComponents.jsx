@@ -25,7 +25,7 @@ export const Info = styled.p`
   margin: 2%;
 `;
 export const ImgBox = styled.img`
-  border: 2px solid black;
+  border: 2px solid #ffcb05;
   display: inline-block;
   width: 40%;
 `;
@@ -42,7 +42,7 @@ export const Btn = styled.button`
   display: inline-block;
   width: 30%;
   height: 4vw;
-  background-color: white;
+  background-color: #ffcb05;
   border: 2px solid #3466af;
   border-radius: 10vw;
   z-index: 1;
@@ -51,7 +51,8 @@ export const Btn = styled.button`
 
   &:hover {
     cursor: pointer;
-    background-color: #ffcb05;
+    background-color: #3466af;
+    color: white;
     transition: all 0.3s;
   }
 `;

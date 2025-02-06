@@ -26,7 +26,6 @@ const PokemonCard = ({ item, handlerBtn, label }) => {
       <ImgBox src={img_url} alt="" />
       <BtnBox>
         <Btn onClick={() => handlerBtn(id)}>{label}</Btn>
-        <Btn onClick={() => handlerBtn(id)}>{label}</Btn>
       </BtnBox>
       <CoverBox id="card-box" />
     </CardBox>
