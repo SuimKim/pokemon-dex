@@ -2,8 +2,6 @@ import styled from "styled-components";
 
 export const ContentsBox = styled.div`
   width: 100%;
-  /* border: 1px solid black; */
-  /* display: flex; */
 `;
 export const NumBox = styled.div`
   padding-top: 0.8vw;
@@ -30,7 +28,6 @@ export const ImgBox = styled.img`
   width: 40%;
 `;
 export const BtnBox = styled.div`
-  /* border: 1px solid black; */
   justify-content: center;
   display: flex;
   box-sizing: border-box;

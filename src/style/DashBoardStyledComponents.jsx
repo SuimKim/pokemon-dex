@@ -13,9 +13,11 @@ export const ListBox = styled.div`
   border-radius: 20px;
   margin: 10px;
   box-shadow: 0px 10px 20px #bcbcbcaf;
-  height: 240px;
+  min-height: 240px;
+  height: 13.5vw;
   background-image: url("./src/assets/img/card-back.png");
-  background-size: contain;
+  background-size: cover;
+  background-position: center;
 `;
 
 export const DashBoardBox = styled.div`

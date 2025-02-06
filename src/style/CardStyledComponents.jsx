@@ -19,7 +19,8 @@ export const CardBox = styled.div`
   z-index: 1;
   justify-items: center;
   box-shadow: 0px 10px 20px #bcbcbcaf;
-  height: 240px;
+  min-height: 240px;
+  height: 13.5vw;
   &:hover {
     box-shadow: 0px 10px 30px #989898ad;
     transition: all 0.3s;
@@ -30,17 +31,17 @@ export const CardBox = styled.div`
 export const NumBox = styled.div`
   position: absolute;
   background-color: #ffbd6c;
-  padding: 9px 10px 5px 10px;
+  padding: 9px 10px 5px 9px;
   border-radius: 20px;
   width: 25px;
-  font-size: 1em;
+  font-size: 0.8em;
   top: 15px;
   left: 15px;
 `;
 export const NameTag = styled.p`
   position: absolute;
-  top: 22px;
-  left: 75px;
+  top: 20px;
+  left: 70px;
   font-size: 1.2em;
   font-weight: bold;
 `;
@@ -55,7 +56,6 @@ export const BtnBox = styled.div`
   position: relative;
   box-sizing: border-box;
   padding: 5px;
-  /* margin-top: px; */
   width: 100%;
   justify-content: right;
 `;

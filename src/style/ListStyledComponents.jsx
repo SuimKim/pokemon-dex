@@ -16,7 +16,7 @@ export const PokemonListBox = styled.div`
 
 export const DexLogoBox = styled.div`
   position: absolute;
-  width: 25%;
+  width: 27.7%;
   right: 0;
   top: -4.5vw;
   background-color: #ffe6c6;
