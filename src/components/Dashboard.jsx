@@ -17,11 +17,11 @@ const Dashboard = () => {
 
   const removeMyPokemon = (id) => {
     const deletedPokemon = myPokemon.map((a) => {
-      return a.id === id ? "" : a;
+      return a !== null && a.id === id ? null : a;
     });
 
-    const firstEmptyIndex = deletedPokemon.indexOf("");
-    const item = deletedPokemon.splice(firstEmptyIndex, 1);
+    const firstNullIndex = deletedPokemon.indexOf(null);
+    const item = deletedPokemon.splice(firstNullIndex, 1);
     deletedPokemon.splice(6, 0, item[0]);
 
     dispatch(setMyPokemon(deletedPokemon));
@@ -34,14 +34,14 @@ const Dashboard = () => {
       </DashLogoBox>
       <DashBoardBox>
         <MyPokemonBox>
-          {myPokemon.map((pokemon) => {
-            return !pokemon.id ? (
-              <ListBox>
+          {myPokemon.map((pokemon, index) => {
+            return pokemon === null ? (
+              <ListBox key={index}>
                 <img src="./src/assets/img/card-back.png" alt="" />
               </ListBox>
             ) : (
               <PokemonCard
-                key={myPokemon.id}
+                key={pokemon.id + pokemon.korean_name}
                 item={pokemon}
                 handlerBtn={removeMyPokemon}
                 label="삭제"

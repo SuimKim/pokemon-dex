@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const SET_DATA = Array.from({ length: 6 }, () => "");
+const SET_DATA = Array.from({ length: 6 }, () => null);
 const initialState = {
   myPokemon: SET_DATA,
 };

@@ -4,13 +4,13 @@ import PokemonDetail from "../components/PokemonDetail";
 import { BackBox, Logo } from "../style/DetailStyledComponents";
 
 const Detail = () => {
-  const [query, setQuery] = useSearchParams();
+  const [selectedPokemon] = useSearchParams();
 
   return (
     <>
       <Logo src="./src/assets/img/logo.svg" alt="" />
       <BackBox>
-        <PokemonDetail id={query.get("id")} />
+        <PokemonDetail id={selectedPokemon.get("id")} />
       </BackBox>
     </>
   );
