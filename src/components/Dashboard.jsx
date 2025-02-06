@@ -29,15 +29,12 @@ const Dashboard = () => {
 
   return (
     <>
-      <DashLogoBox>
-        <img src="./src/assets/img/dash-logo.png" alt="" />
-      </DashLogoBox>
       <DashBoardBox>
         <MyPokemonBox>
           {myPokemon.map((pokemon, index) => {
             return pokemon === null ? (
               <ListBox key={index}>
-                <img src="./src/assets/img/card-back.png" alt="" />
+                {/* <img src="./src/assets/img/card-back.png" alt="" /> */}
               </ListBox>
             ) : (
               <PokemonCard
@@ -50,6 +47,9 @@ const Dashboard = () => {
           })}
         </MyPokemonBox>
       </DashBoardBox>
+      <DashLogoBox>
+        <img src="./src/assets/img/dash-logo.png" alt="" />
+      </DashLogoBox>
     </>
   );
 };

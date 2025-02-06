@@ -1,7 +1,7 @@
 import React from "react";
 import PokemonCard from "./PokemonCard";
 import MOCK_DATA from "../mockData";
-import { PokemonListBox } from "../style/ListStyledComponents";
+import { DexLogoBox, PokemonListBox } from "../style/ListStyledComponents";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { setMyPokemon } from "../redux/pokemonSlice";
@@ -37,6 +37,9 @@ const PokemonList = () => {
   return (
     <>
       <PokemonListBox>
+        <DexLogoBox>
+          <img src="./src/assets/img/dex-logo.png" alt="" />
+        </DexLogoBox>
         {POKE_DATA.map((pokemon) => {
           return (
             <PokemonCard

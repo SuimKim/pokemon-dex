@@ -21,7 +21,7 @@ export const BackBox = styled.div`
 `;
 
 export const InnerLine = styled.hr`
-  width: 90%;
+  width: 35%;
   border: 2px solid #e4e4e4;
-  margin: 3% 0 3% 0;
+  margin: 5% 0 5% 0;
 `;
