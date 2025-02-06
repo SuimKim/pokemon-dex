@@ -1,7 +1,6 @@
 import React from "react";
 import { useSearchParams } from "react-router-dom";
 import PokemonDetail from "../components/PokemonDetail";
-import styled from "styled-components";
 import { BackBox, Logo } from "../style/DetailStyledComponents";
 
 const Detail = () => {

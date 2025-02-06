@@ -1,7 +1,5 @@
 import React from "react";
 import PokemonCard from "./PokemonCard";
-import { useContext } from "react";
-import { PokemonContext } from "../contexts/PokemonContext";
 import {
   DashBoardBox,
   DashLogoBox,
@@ -13,13 +11,12 @@ import { useDispatch } from "react-redux";
 import { setMyPokemon } from "../redux/pokemonSlice";
 
 const Dashboard = () => {
-  // const { myPokemon, setMyPokemon } = useContext(PokemonContext);
   const dispatch = useDispatch();
-  const result = useSelector((a) => a.myPokemon);
-  console.log("result", result);
+  const myPokemon = useSelector((a) => a.myPokemon);
+  // console.log("result", myPokemon);
 
   const removeMyPokemon = (id) => {
-    const deletedPokemon = result.map((a) => {
+    const deletedPokemon = myPokemon.map((a) => {
       return a.id === id ? "" : a;
     });
 
@@ -27,7 +24,6 @@ const Dashboard = () => {
     const item = deletedPokemon.splice(firstEmptyIndex, 1);
     deletedPokemon.splice(6, 0, item[0]);
 
-    // setMyPokemon(deletedPokemon);
     dispatch(setMyPokemon(deletedPokemon));
   };
 
@@ -38,14 +34,14 @@ const Dashboard = () => {
       </DashLogoBox>
       <DashBoardBox>
         <MyPokemonBox>
-          {result.map((pokemon) => {
+          {myPokemon.map((pokemon) => {
             return !pokemon.id ? (
               <ListBox>
                 <img src="./src/assets/img/card-back.png" alt="" />
               </ListBox>
             ) : (
               <PokemonCard
-                key={result.id}
+                key={myPokemon.id}
                 item={pokemon}
                 handlerBtn={removeMyPokemon}
                 label="삭제"
