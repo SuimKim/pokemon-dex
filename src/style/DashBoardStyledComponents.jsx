@@ -2,36 +2,41 @@ import styled from "styled-components";
 
 export const MyPokemonBox = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-  gap: 2vw;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 15%));
+  justify-content: space-evenly;
+  row-gap: 2vw;
   width: 100%;
   box-sizing: border-box;
-  padding: 3%;
 `;
 
 export const ListBox = styled.div`
-  img {
-    width: 100%;
-    border-radius: 30px;
-  }
+  border-radius: 20px;
+  margin: 10px;
+  box-shadow: 0px 10px 20px #bcbcbcaf;
+  height: 240px;
+  background-image: url("./src/assets/img/card-back.png");
+  background-size: contain;
 `;
 
 export const DashBoardBox = styled.div`
   width: 90%;
   justify-items: center;
-  border-radius: 50px;
-  /* border: 3px solid #3466af; */
-
+  border-radius: 3vw;
+  border-bottom-left-radius: 0;
+  padding: 3%;
   background-color: #c3dbe3;
+  box-sizing: border-box;
 `;
 
 export const DashLogoBox = styled.div`
-  width: 40%;
+  position: absolute;
+  width: 25%;
+  left: 5%;
   background-color: #c3dbe3;
-  border-top-right-radius: 30px;
-  border-top-left-radius: 30px;
+  border-bottom-right-radius: 1.5vw;
+  border-bottom-left-radius: 1.5vw;
   box-sizing: border-box;
-  padding: 1% 1% 0 1%;
+  padding: 0 1% 1% 1%;
   img {
     width: 100%;
   }
