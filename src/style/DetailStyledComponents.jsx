@@ -35,8 +35,8 @@ export const BtnBox = styled.div`
   display: flex;
   box-sizing: border-box;
   padding: 5px;
-  margin-top: 10px;
-  width: 100%;
+  margin: 10px auto 0 auto;
+  width: 80%;
 `;
 export const Btn = styled.button`
   display: inline-block;

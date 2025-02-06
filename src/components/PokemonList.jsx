@@ -5,6 +5,7 @@ import { DexLogoBox, PokemonListBox } from "../style/ListStyledComponents";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { setMyPokemon } from "../redux/pokemonSlice";
+import { swalAlert, swalToast } from "./SweetAlert";
 
 const PokemonList = () => {
   const POKE_DATA = MOCK_DATA;
@@ -14,7 +15,7 @@ const PokemonList = () => {
   const selectMyPokemon = (pokeId) => {
     const firstNullIndex = myPokemon.indexOf(null);
     if (firstNullIndex === -1) {
-      alert("포켓몬은 6개까지만 선택할 수 있어요!");
+      swalAlert("포켓몬은 6개까지 추가할 수 있어요.");
       return;
     }
 
@@ -22,7 +23,7 @@ const PokemonList = () => {
       pokemon === null ? pokemon : pokemon.id === pokeId
     );
     if (isAlreadySelected) {
-      alert("이미 저장된 포켓몬입니다!");
+      swalAlert("이미 추가된 포켓몬이에요.");
       return;
     }
 
@@ -32,6 +33,7 @@ const PokemonList = () => {
     newMyPokemon[firstNullIndex] = selectedPokemon; // 새로 만든 배열의 첫번째 비어있는 인덱스를 선택한 포켓몬으로 교체
 
     dispatch(setMyPokemon(newMyPokemon));
+    swalToast("추가 완료!");
   };
 
   return (

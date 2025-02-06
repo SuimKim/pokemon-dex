@@ -13,6 +13,7 @@ import {
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { setMyPokemon } from "../redux/pokemonSlice";
+import { swalAlert, swalToast } from "./SweetAlert";
 
 const PokemonDetail = ({ queryId }) => {
   const POKE_DATA = MOCK_DATA;
@@ -21,7 +22,7 @@ const PokemonDetail = ({ queryId }) => {
   const clickedPokemon = POKE_DATA.find((a) => {
     return a.id === Number(queryId);
   });
-  const { id, korean_name, img_url, description } = clickedPokemon;
+  const { id, korean_name, img_url, types, description } = clickedPokemon;
 
   const dispatch = useDispatch();
   const myPokemon = useSelector((a) => a.myPokemon);
@@ -29,7 +30,7 @@ const PokemonDetail = ({ queryId }) => {
   const addMyPokemon = (pokeId) => {
     const firstNullIndex = myPokemon.indexOf(null);
     if (firstNullIndex === -1) {
-      alert("포켓몬은 6개까지만 선택할 수 있어요!");
+      swalAlert("포켓몬은 6개까지 추가할 수 있어요.");
       return;
     }
 
@@ -37,7 +38,7 @@ const PokemonDetail = ({ queryId }) => {
       pokemon === null ? pokemon : pokemon.id === pokeId
     );
     if (isAlreadySelected) {
-      alert("이미 저장된 포켓몬입니다!");
+      swalAlert("이미 추가된 포켓몬이에요.");
       return;
     }
 
@@ -47,12 +48,14 @@ const PokemonDetail = ({ queryId }) => {
     newMyPokemon[firstNullIndex] = selectedPokemon; // 새로 만든 배열의 첫번째 비어있는 인덱스를 선택한 포켓몬으로 교체
 
     dispatch(setMyPokemon(newMyPokemon));
+    swalToast("추가 완료!");
   };
   return (
     <>
       <ContentsBox>
         <NumBox>No.{String(queryId).padStart(3, "0")}</NumBox>
         <NameTag>{korean_name}</NameTag>
+        <Info>{types}</Info>
         <ImgBox src={img_url} alt="" />
         <Info>{description}</Info>
         <BtnBox>

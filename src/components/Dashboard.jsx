@@ -9,6 +9,7 @@ import {
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { setMyPokemon } from "../redux/pokemonSlice";
+import { swalDeleteAlert, swalToast } from "./SweetAlert";
 
 const Dashboard = () => {
   const dispatch = useDispatch();
@@ -16,15 +17,21 @@ const Dashboard = () => {
   // console.log("result", myPokemon);
 
   const removeMyPokemon = (id) => {
-    const deletedPokemon = myPokemon.map((a) => {
-      return a !== null && a.id === id ? null : a;
+    swalDeleteAlert().then((result) => {
+      if (result.isConfirmed) {
+        swalToast("삭제 완료!");
+
+        const deletedPokemon = myPokemon.map((a) => {
+          return a !== null && a.id === id ? null : a;
+        });
+
+        const firstNullIndex = deletedPokemon.indexOf(null);
+        const item = deletedPokemon.splice(firstNullIndex, 1);
+        deletedPokemon.splice(6, 0, item[0]);
+
+        dispatch(setMyPokemon(deletedPokemon));
+      }
     });
-
-    const firstNullIndex = deletedPokemon.indexOf(null);
-    const item = deletedPokemon.splice(firstNullIndex, 1);
-    deletedPokemon.splice(6, 0, item[0]);
-
-    dispatch(setMyPokemon(deletedPokemon));
   };
 
   return (
