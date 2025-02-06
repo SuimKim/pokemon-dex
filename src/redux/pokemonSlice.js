@@ -1,10 +1,16 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const SET_DATA = Array.from({ length: 6 }, () => null);
-const initialState = {
-  myPokemon: SET_DATA,
-};
 
+try {
+  const localData = JSON.parse(localStorage.getItem("pokemon"));
+  !localData && localStorage.setItem("pokemon", JSON.stringify(SET_DATA));
+} catch (error) {
+  console.log("error", error);
+}
+const initialState = {
+  myPokemon: JSON.parse(localStorage.getItem("pokemon")),
+};
 const pokemonSlice = createSlice({
   name: "myPokemon",
   initialState,

@@ -30,6 +30,7 @@ const Dashboard = () => {
         deletedPokemon.splice(6, 0, item[0]);
 
         dispatch(setMyPokemon(deletedPokemon));
+        localStorage.setItem("pokemon", JSON.stringify(deletedPokemon));
       }
     });
   };
@@ -40,9 +41,7 @@ const Dashboard = () => {
         <MyPokemonBox>
           {myPokemon.map((pokemon, index) => {
             return pokemon === null ? (
-              <ListBox key={index}>
-                {/* <img src="./src/assets/img/card-back.png" alt="" /> */}
-              </ListBox>
+              <ListBox key={index} />
             ) : (
               <PokemonCard
                 key={pokemon.id + pokemon.korean_name}

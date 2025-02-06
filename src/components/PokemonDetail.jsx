@@ -48,6 +48,7 @@ const PokemonDetail = ({ queryId }) => {
     newMyPokemon[firstNullIndex] = selectedPokemon; // 새로 만든 배열의 첫번째 비어있는 인덱스를 선택한 포켓몬으로 교체
 
     dispatch(setMyPokemon(newMyPokemon));
+    localStorage.setItem("pokemon", JSON.stringify(newMyPokemon));
     swalToast("추가 완료!");
   };
   return (
