@@ -12,7 +12,7 @@ import {
 } from "../style/DetailStyledComponents";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
-import { setMyPokemon } from "../redux/pokemonSlice";
+import { setMyPokemon } from "../redux/myPokeSlice";
 import { swalAlert, swalToast } from "./SweetAlert";
 
 const PokemonDetail = ({ queryId }) => {
@@ -56,7 +56,7 @@ const PokemonDetail = ({ queryId }) => {
       <ContentsBox>
         <NumBox>No.{String(queryId).padStart(3, "0")}</NumBox>
         <NameTag>{korean_name}</NameTag>
-        <Info>{types}</Info>
+        <Info>| {types.join(" | ")} |</Info>
         <ImgBox src={img_url} alt="" />
         <Info>{description}</Info>
         <BtnBox>

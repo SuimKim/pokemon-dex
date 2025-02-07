@@ -3,17 +3,18 @@ import PokemonCard from "./PokemonCard";
 import {
   DashBoardBox,
   DashLogoBox,
+  Line,
   ListBox,
   MyPokemonBox,
 } from "../style/DashBoardStyledComponents";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import { setMyPokemon } from "../redux/pokemonSlice";
+import { setMyPokemon } from "../redux/myPokeSlice";
 import { swalDeleteAlert, swalToast } from "./SweetAlert";
 
 const Dashboard = () => {
   const dispatch = useDispatch();
-  const myPokemon = useSelector((a) => a.myPokemon);
+  const myPokemon = useSelector((a) => a.myPokeSlice);
 
   const removeMyPokemon = (id) => {
     swalDeleteAlert().then((result) => {
@@ -37,6 +38,10 @@ const Dashboard = () => {
 
   return (
     <>
+      <DashLogoBox>
+        <img src="./src/assets/img/dash-logo.png" alt="" />
+      </DashLogoBox>
+      <Line />
       <DashBoardBox>
         <MyPokemonBox>
           {myPokemon.map((pokemon, index) => {
@@ -53,9 +58,6 @@ const Dashboard = () => {
           })}
         </MyPokemonBox>
       </DashBoardBox>
-      <DashLogoBox>
-        <img src="./src/assets/img/dash-logo.png" alt="" />
-      </DashLogoBox>
     </>
   );
 };

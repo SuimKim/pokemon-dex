@@ -24,22 +24,31 @@ export const DashBoardBox = styled.div`
   width: 90%;
   justify-items: center;
   border-radius: 3vw;
-  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
   padding: 3%;
   background-color: #c3dbe3;
   box-sizing: border-box;
+  position: relative;
 `;
 
 export const DashLogoBox = styled.div`
-  position: absolute;
+  position: relative;
   width: 25%;
-  left: 5%;
+  left: -32.5%;
   background-color: #c3dbe3;
-  border-bottom-right-radius: 1.5vw;
-  border-bottom-left-radius: 1.5vw;
+  border-top-right-radius: 1.5vw;
+  border-top-left-radius: 1.5vw;
   box-sizing: border-box;
-  padding: 0 1% 1% 1%;
+  padding: 1% 1% 0 1%;
   img {
     width: 100%;
   }
+`;
+
+export const Line = styled.hr`
+  width: 55%;
+  position: absolute;
+  border: 0.1vw solid #3466af;
+  top: 4.2vw;
+  right: 10%;
 `;

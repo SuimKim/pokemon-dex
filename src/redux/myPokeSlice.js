@@ -8,18 +8,14 @@ try {
 } catch (error) {
   console.log("error", error);
 }
-const initialState = {
-  myPokemon: JSON.parse(localStorage.getItem("pokemon")),
-};
-const pokemonSlice = createSlice({
+
+const myPokeSlice = createSlice({
   name: "myPokemon",
-  initialState,
+  initialState: JSON.parse(localStorage.getItem("pokemon")),
   reducers: {
-    setMyPokemon: (state, action) => {
-      state.myPokemon = action.payload;
-    },
+    setMyPokemon: (state, action) => (state = action.payload),
   },
 });
 
-export const { setMyPokemon } = pokemonSlice.actions;
-export default pokemonSlice.reducer;
+export const { setMyPokemon } = myPokeSlice.actions;
+export default myPokeSlice.reducer;

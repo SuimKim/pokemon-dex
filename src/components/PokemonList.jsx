@@ -1,16 +1,16 @@
 import React from "react";
 import PokemonCard from "./PokemonCard";
-import MOCK_DATA from "../mockData";
+import SearchBox from "../components/SearchBox";
 import { DexLogoBox, PokemonListBox } from "../style/ListStyledComponents";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
-import { setMyPokemon } from "../redux/pokemonSlice";
 import { swalAlert, swalToast } from "./SweetAlert";
+import { setMyPokemon } from "../redux/myPokeSlice";
 
 const PokemonList = () => {
-  const POKE_DATA = MOCK_DATA;
   const dispatch = useDispatch();
-  const myPokemon = useSelector((a) => a.myPokemon);
+  const myPokemon = useSelector((a) => a.myPokeSlice);
+  const pokemonList = useSelector((a) => a.pokeListSlice);
 
   const selectMyPokemon = (pokeId) => {
     const firstNullIndex = myPokemon.indexOf(null);
@@ -27,7 +27,7 @@ const PokemonList = () => {
       return;
     }
 
-    const selectedPokemon = POKE_DATA.find((a) => a.id === pokeId); // 선택한 포켓몬
+    const selectedPokemon = pokemonList.find((a) => a.id === pokeId); // 선택한 포켓몬
 
     const newMyPokemon = [...myPokemon]; // 새로운 myPokemon 배열을 만들어서 기존 배열 복사
     newMyPokemon[firstNullIndex] = selectedPokemon; // 새로 만든 배열의 첫번째 비어있는 인덱스를 선택한 포켓몬으로 교체
@@ -39,11 +39,12 @@ const PokemonList = () => {
 
   return (
     <>
+      <SearchBox />
       <PokemonListBox>
         <DexLogoBox>
           <img src="./src/assets/img/dex-logo.png" alt="" />
         </DexLogoBox>
-        {POKE_DATA.map((pokemon) => {
+        {pokemonList.map((pokemon) => {
           return (
             <PokemonCard
               key={pokemon.id}

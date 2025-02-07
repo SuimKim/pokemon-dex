@@ -14,9 +14,3 @@ export const BackBox = styled.div`
   background-color: white;
   position: relative;
 `;
-
-export const InnerLine = styled.hr`
-  width: 35%;
-  border: 2px solid #e4e4e4;
-  margin: 5% 0 5% 0;
-`;

@@ -1,14 +1,15 @@
 import styled from "styled-components";
 
 export const Background = styled.div`
-  width: 100%;
+  width: 80%;
   display: flex;
-  justify-content: center;
-  margin-bottom: 3%;
+  position: relative;
+  margin: 4% 0 1% 0;
+  left: 2vw;
 `;
 
 export const Select = styled.select`
-  width: 10%;
+  width: 12%;
   height: 4.37vw;
   border: 3px solid #3466af;
   border-right: none;
@@ -26,14 +27,16 @@ export const Select = styled.select`
   }
 `;
 export const InputBox = styled.div`
-  width: 40%;
+  width: 50%;
   display: flex;
+  height: 4.37vw;
   position: relative;
   overflow: hidden;
   border: 3px solid #3466af;
   border-radius: 5vw;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
+  box-sizing: border-box;
 
   img {
     width: 3vw;
