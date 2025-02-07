@@ -16,7 +16,7 @@ const SearchBox = ({}) => {
   const searchValueRef = useRef(null);
   const typeValueRef = useRef(null);
 
-  const searchHandler = (type) => {
+  const searchHandler = () => {
     let searchList = [];
 
     switch (typeValueRef.current.value) {
@@ -24,9 +24,9 @@ const SearchBox = ({}) => {
         searchList = pokemonList.filter((pokemon) => {
           return pokemon.korean_name.includes(searchValueRef.current.value);
         });
-      // case "id":
-      //   searchList = pokemonList.filter((pokemon) => {
-      //     return pokemon.id.includes(searchValueRef.current.value);
+      // case "num":
+      //   searchList = pokemonList.find((pokemon) => {
+      //     return pokemon.id === Number(searchValueRef.current.value);
       //   });
       case "types":
         searchList = pokemonList.filter((pokemon) => {
@@ -42,7 +42,7 @@ const SearchBox = ({}) => {
       <Background>
         <Select name="searchValues" ref={typeValueRef}>
           <option value="name">이름</option>
-          <option value="num">Number</option>
+          {/* <option value="num">Num</option> */}
           <option value="types">속성</option>
         </Select>
         <InputBox>

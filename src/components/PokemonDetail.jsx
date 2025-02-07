@@ -16,16 +16,15 @@ import { setMyPokemon } from "../redux/myPokeSlice";
 import { swalAlert, swalToast } from "./SweetAlert";
 
 const PokemonDetail = ({ queryId }) => {
-  const POKE_DATA = MOCK_DATA;
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const myPokemon = useSelector((a) => a.myPokeSlice);
+  const pokemonList = useSelector((a) => a.pokeListSlice);
 
-  const clickedPokemon = POKE_DATA.find((a) => {
+  const clickedPokemon = pokemonList.find((a) => {
     return a.id === Number(queryId);
   });
   const { id, korean_name, img_url, types, description } = clickedPokemon;
-
-  const dispatch = useDispatch();
-  const myPokemon = useSelector((a) => a.myPokemon);
 
   const addMyPokemon = (pokeId) => {
     const firstNullIndex = myPokemon.indexOf(null);
@@ -42,7 +41,7 @@ const PokemonDetail = ({ queryId }) => {
       return;
     }
 
-    const selectedPokemon = POKE_DATA.find((a) => a.id === pokeId); // 선택한 포켓몬
+    const selectedPokemon = pokemonList.find((a) => a.id === pokeId); // 선택한 포켓몬
 
     const newMyPokemon = [...myPokemon]; // 새로운 myPokemon 배열을 만들어서 기존 배열 복사
     newMyPokemon[firstNullIndex] = selectedPokemon; // 새로 만든 배열의 첫번째 비어있는 인덱스를 선택한 포켓몬으로 교체
