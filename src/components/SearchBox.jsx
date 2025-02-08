@@ -79,6 +79,7 @@ const SearchBox = ({}) => {
     console.log("testList", testNameList);
     setTest(testNameList);
   };
+
   return (
     <>
       <Background>
@@ -93,7 +94,7 @@ const SearchBox = ({}) => {
             ref={searchValueRef}
             onKeyDown={enterHandler}
             onFocus={openDropDownList}
-            onBlur={closeDropDownList}
+            // onBlur={closeDropDownList}
             onChange={testFunc}
             placeholder="포켓몬 입력!"
           />
@@ -103,7 +104,17 @@ const SearchBox = ({}) => {
         </InputBox>
         <DropDownBox ref={dropDownRef}>
           {test.map((pokemon, index) => {
-            return <DropDownList key={index}>{pokemon}</DropDownList>;
+            return (
+              <DropDownList
+                onClick={(e) => {
+                  searchValueRef.current.value = e.target.innerHTML;
+                  searchHandler();
+                }}
+                key={index}
+              >
+                {pokemon}
+              </DropDownList>
+            );
           })}
         </DropDownBox>
       </Background>
