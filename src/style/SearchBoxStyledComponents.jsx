@@ -60,8 +60,28 @@ export const Input = styled.input`
   border-right: 3px solid #3466af;
   font-size: 1.2vw;
   padding: 1vw;
-
+  /* z-index: 3; */
   &:focus {
     outline: none;
   }
+`;
+
+export const DropDownBox = styled.div`
+  position: absolute;
+  width: 41.8%;
+  border: 3px solid #3466af;
+  border-top: 2px solid #b8c4d6;
+  background-color: white;
+  /* height: 30px; */
+  top: 4.2vw;
+  left: 12%;
+  z-index: 2;
+  text-align: left;
+  display: none;
+`;
+
+export const DropDownList = styled.p`
+  position: relative;
+  padding: 1vw;
+  /* border-top: 1px solid black; */
 `;
