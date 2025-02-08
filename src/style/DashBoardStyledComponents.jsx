@@ -3,19 +3,21 @@ import { CARD_BACK } from "../assets/img/imgPath";
 
 export const MyPokemonBox = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 15%));
+  grid-template-columns: repeat(auto-fill, 15%);
   justify-content: space-evenly;
-  row-gap: 2vw;
+  justify-items: center;
+  /* row-gap: 2vw; */
   width: 100%;
   box-sizing: border-box;
 `;
 
-export const ListBox = styled.div`
-  border-radius: 20px;
-  margin: 10px;
+export const EmptyCard = styled.div`
+  border-radius: 2vw;
+  /* margin: 10px; */
   box-shadow: 0px 10px 20px #bcbcbcaf;
-  min-height: 240px;
+  /* min-height: 240px; */
   height: 13.5vw;
+  width: 10.5vw;
   background-image: url("https://github.com/SuimKim/pokemon-dex/blob/main/src/assets/img/card-back.png?raw=true");
   background-size: cover;
   background-position: center;

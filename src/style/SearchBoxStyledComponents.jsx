@@ -11,7 +11,7 @@ export const Background = styled.div`
 export const Select = styled.select`
   width: 12%;
   height: 4.37vw;
-  border: 3px solid #3466af;
+  border: 0.2vw solid #3466af;
   border-right: none;
   font-size: 1.2vw;
   padding: 1vw;
@@ -32,7 +32,7 @@ export const InputBox = styled.div`
   height: 4.37vw;
   position: relative;
   overflow: hidden;
-  border: 3px solid #3466af;
+  border: 0.2vw solid #3466af;
   border-radius: 5vw;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
@@ -57,7 +57,7 @@ export const Input = styled.input`
   width: 85%;
   height: 4vw;
   border: none;
-  border-right: 3px solid #3466af;
+  border-right: 0.2vw solid #3466af;
   font-size: 1.2vw;
   padding: 1vw;
   /* z-index: 3; */
@@ -69,8 +69,8 @@ export const Input = styled.input`
 export const DropDownBox = styled.div`
   position: absolute;
   width: 41.8%;
-  border: 3px solid #3466af;
-  border-top: 2px solid #b8c4d6;
+  border: 0.2vw solid #3466af;
+  border-top: 0.1vw solid #b8c4d6;
   background-color: white;
   /* height: 30px; */
   top: 4.2vw;

@@ -3,8 +3,8 @@ import PokemonCard from "./PokemonCard";
 import {
   DashBoardBox,
   DashLogoBox,
+  EmptyCard,
   Line,
-  ListBox,
   MyPokemonBox,
 } from "../style/DashBoardStyledComponents";
 import { useSelector } from "react-redux";
@@ -48,7 +48,7 @@ const Dashboard = () => {
         <MyPokemonBox>
           {myPokemon.map((pokemon, index) => {
             return pokemon === null ? (
-              <ListBox key={index} />
+              <EmptyCard key={index} />
             ) : (
               <PokemonCard
                 key={pokemon.id + pokemon.korean_name}

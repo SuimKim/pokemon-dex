@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export const CoverBox = styled.div`
-  /* background-color: #00000053; */
   width: 100%;
   height: 100%;
   top: 0;
@@ -12,45 +11,46 @@ export const CoverBox = styled.div`
 `;
 
 export const CardBox = styled.div`
-  border-radius: 20px;
+  border-radius: 2vw;
   position: relative;
-  margin: 10px;
+  /* margin: 10px; */
   background-color: white;
   z-index: 1;
   justify-items: center;
-  box-shadow: 0px 10px 20px #bcbcbcaf;
-  min-height: 240px;
-  height: 13.5vw;
+  box-shadow: 0 1vw 1vw #bcbcbcaf;
+  /* min-height: 240px; */
+  height: 16vw;
+  width: 12vw;
   &:hover {
-    box-shadow: 0px 10px 30px #989898ad;
+    box-shadow: 0px 0.5vw 1.5vw #989898ad;
     transition: all 0.3s;
-    transform: translateY(-10px);
+    transform: translateY(-1vw);
   }
 `;
 
 export const NumBox = styled.div`
   position: absolute;
   background-color: #ffbd6c;
-  padding: 9px 10px 5px 9px;
-  border-radius: 20px;
-  width: 25px;
-  font-size: 0.8em;
-  top: 15px;
-  left: 15px;
+  padding: 0.6vw 0.5vw 0.4vw 0.5vw;
+  border-radius: 1vw;
+  width: 2vw;
+  font-size: 0.8vw;
+  top: 1vw;
+  left: 1vw;
 `;
 export const NameTag = styled.p`
   position: absolute;
-  top: 20px;
-  left: 70px;
-  font-size: 1.2em;
+  top: 1.4vw;
+  left: 4.5vw;
+  font-size: 1.2vw;
   font-weight: bold;
 `;
 export const ImgBox = styled.img`
   position: relative;
   display: flex;
-  top: 50px;
+  top: 3.2vw;
   width: 75%;
-  border: 2px solid #ffcb05;
+  border: 0.1vw solid #ffcb05;
 `;
 export const BtnBox = styled.div`
   display: flex;
@@ -59,17 +59,18 @@ export const BtnBox = styled.div`
   padding: 5px;
   width: 100%;
   justify-content: right;
-  top: 43px;
+  top: 3.5vw;
 `;
 export const Btn = styled.button`
   position: relative;
-  width: 50%;
-  height: 35px;
+  width: 40%;
+  height: 2.2vw;
   background-color: #ffcb05;
-  border: 2px solid #3466af;
-  border-radius: 20px;
+  border: 0.13vw solid #3466af;
+  border-radius: 2vw;
+  margin-right: 1vw;
   z-index: 1;
-  margin: 10px;
+  font-size: 0.8vw;
   box-sizing: border-box;
 
   &:hover {

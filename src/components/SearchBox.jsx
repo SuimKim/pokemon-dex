@@ -94,7 +94,7 @@ const SearchBox = ({}) => {
             ref={searchValueRef}
             onKeyDown={enterHandler}
             onFocus={openDropDownList}
-            // onBlur={closeDropDownList}
+            onBlur={closeDropDownList}
             onChange={testFunc}
             placeholder="포켓몬 입력!"
           />
