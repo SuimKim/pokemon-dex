@@ -9,31 +9,32 @@ import {
 import { useDispatch } from "react-redux";
 import { useRef } from "react";
 import { setPokemonList } from "../redux/pokeListSlice";
-import { useSelector } from "react-redux";
+import MOCK_DATA from "../mockData";
+
 const SearchBox = ({}) => {
-  const pokemonList = useSelector((a) => a.pokeListSlice);
+  const POKE_LIST = MOCK_DATA;
+
   const dispatch = useDispatch();
   const searchValueRef = useRef(null);
   const typeValueRef = useRef(null);
 
   const searchHandler = () => {
     let searchList = [];
+    const searchKeyword = searchValueRef.current.value;
+    const typeValue = typeValueRef.current.value;
 
-    switch (typeValueRef.current.value) {
+    switch (typeValue) {
       case "name":
-        searchList = pokemonList.filter((pokemon) => {
-          return pokemon.korean_name.includes(searchValueRef.current.value);
+        searchList = POKE_LIST.filter((pokemon) => {
+          return pokemon.korean_name.includes(searchKeyword);
         });
-      // case "num":
-      //   searchList = pokemonList.find((pokemon) => {
-      //     return pokemon.id === Number(searchValueRef.current.value);
-      //   });
+        break;
       case "types":
-        searchList = pokemonList.filter((pokemon) => {
-          return pokemon.types.includes(searchValueRef.current.value);
+        searchList = POKE_LIST.filter((pokemon) => {
+          return pokemon.types.includes(searchKeyword);
         });
+        break;
     }
-
     dispatch(setPokemonList(searchList));
   };
 
