@@ -15,12 +15,13 @@ const PokemonCard = ({ item, handlerBtn, label }) => {
 
   const navigate = useNavigate();
 
+  const handleCardClick = (e) => {
+    sessionStorage.setItem("scroll", window.scrollY);
+    e.target.id === "card-box" && navigate(`/pokemon-detail?id=${id}`);
+  };
+
   return (
-    <CardBox
-      onClick={(e) => {
-        e.target.id === "card-box" && navigate(`/pokemon-detail?id=${id}`);
-      }}
-    >
+    <CardBox onClick={handleCardClick}>
       <NumBox>{String(id).padStart(3, "0")}</NumBox>
       <NameTag>{korean_name}</NameTag>
       <ImgBox src={img_url} alt="" />
