@@ -13,7 +13,9 @@ const myPokeSlice = createSlice({
   name: "myPokemon",
   initialState: JSON.parse(localStorage.getItem("pokemon")),
   reducers: {
-    setMyPokemon: (state, action) => (state = action.payload),
+    setMyPokemon: (state, action) => {
+      return action.payload;
+    },
   },
 });
 
