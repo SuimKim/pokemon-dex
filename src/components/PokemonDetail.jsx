@@ -1,6 +1,5 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import MOCK_DATA from "../mockData";
 import {
   ContentsBox,
   ImgBox,
@@ -13,7 +12,8 @@ import {
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { setMyPokemon } from "../redux/myPokeSlice";
-import { swalAlert } from "./SweetAlert";
+import { swalAlert } from "../style/SweetAlert";
+import { notify } from "../style/Toastify";
 
 const PokemonDetail = ({ queryId }) => {
   const navigate = useNavigate();
@@ -48,6 +48,7 @@ const PokemonDetail = ({ queryId }) => {
 
     dispatch(setMyPokemon(newMyPokemon));
     localStorage.setItem("pokemon", JSON.stringify(newMyPokemon));
+    notify("추가 완료!");
   };
   return (
     <>

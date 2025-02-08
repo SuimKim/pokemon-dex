@@ -10,8 +10,8 @@ import {
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { setMyPokemon } from "../redux/myPokeSlice";
-import { swalDeleteAlert } from "./SweetAlert";
-import { notify } from "./Toastify";
+import { notify } from "../style/Toastify";
+import { swalDeleteAlert } from "../style/SweetAlert";
 
 const Dashboard = () => {
   const dispatch = useDispatch();

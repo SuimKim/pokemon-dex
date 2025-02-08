@@ -4,9 +4,9 @@ import SearchBox from "../components/SearchBox";
 import { DexLogoBox, PokemonListBox } from "../style/ListStyledComponents";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
-import { swalAlert } from "./SweetAlert";
 import { setMyPokemon } from "../redux/myPokeSlice";
-import { notify } from "./Toastify";
+import { swalAlert } from "../style/SweetAlert";
+import { notify } from "../style/Toastify";
 
 const PokemonList = () => {
   const dispatch = useDispatch();
