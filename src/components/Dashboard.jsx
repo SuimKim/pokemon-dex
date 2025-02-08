@@ -10,7 +10,8 @@ import {
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { setMyPokemon } from "../redux/myPokeSlice";
-import { swalDeleteAlert, swalToast } from "./SweetAlert";
+import { swalDeleteAlert } from "./SweetAlert";
+import { notify } from "./Toastify";
 
 const Dashboard = () => {
   const dispatch = useDispatch();
@@ -19,7 +20,7 @@ const Dashboard = () => {
   const removeMyPokemon = (id) => {
     swalDeleteAlert().then((result) => {
       if (result.isConfirmed) {
-        swalToast("삭제 완료!");
+        notify("삭제 완료!");
 
         const deletedPokemon = myPokemon.map((a) => {
           return a !== null && a.id === id ? null : a;

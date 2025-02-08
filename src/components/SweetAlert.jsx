@@ -22,12 +22,3 @@ export const swalDeleteAlert = () => {
     cancelButtonText: "NO",
   });
 };
-
-export const swalToast = (text) => {
-  return Swal.fire({
-    icon: "success",
-    title: text,
-    showConfirmButton: false,
-    timer: 1500,
-  });
-};

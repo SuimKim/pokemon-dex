@@ -5,6 +5,7 @@ import { BackBox, Logo } from "../style/DexStyledComponents";
 import { store } from "../redux/store";
 import { Provider } from "react-redux";
 import { useEffect } from "react";
+import { ToastContainer } from "react-toastify";
 
 const Dex = () => {
   useEffect(() => {
@@ -13,6 +14,7 @@ const Dex = () => {
 
   return (
     <Provider store={store}>
+      <ToastContainer />
       <Logo src="./src/assets/img/logo.svg" alt="" />{" "}
       <BackBox>
         <Dashboard />

@@ -4,8 +4,9 @@ import SearchBox from "../components/SearchBox";
 import { DexLogoBox, PokemonListBox } from "../style/ListStyledComponents";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
-import { swalAlert, swalToast } from "./SweetAlert";
+import { swalAlert } from "./SweetAlert";
 import { setMyPokemon } from "../redux/myPokeSlice";
+import { notify } from "./Toastify";
 
 const PokemonList = () => {
   const dispatch = useDispatch();
@@ -34,7 +35,7 @@ const PokemonList = () => {
 
     dispatch(setMyPokemon(newMyPokemon));
     localStorage.setItem("pokemon", JSON.stringify(newMyPokemon));
-    swalToast("추가 완료!");
+    notify("추가 완료!");
   };
 
   return (

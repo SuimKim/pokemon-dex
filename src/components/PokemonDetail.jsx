@@ -13,7 +13,7 @@ import {
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { setMyPokemon } from "../redux/myPokeSlice";
-import { swalAlert, swalToast } from "./SweetAlert";
+import { swalAlert } from "./SweetAlert";
 
 const PokemonDetail = ({ queryId }) => {
   const navigate = useNavigate();
@@ -48,7 +48,6 @@ const PokemonDetail = ({ queryId }) => {
 
     dispatch(setMyPokemon(newMyPokemon));
     localStorage.setItem("pokemon", JSON.stringify(newMyPokemon));
-    swalToast("추가 완료!");
   };
   return (
     <>
