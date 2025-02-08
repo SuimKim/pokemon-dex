@@ -48,8 +48,9 @@ export const NameTag = styled.p`
 export const ImgBox = styled.img`
   position: relative;
   display: flex;
-  top: 30px;
-  width: 100%;
+  top: 50px;
+  width: 75%;
+  border: 2px solid #ffcb05;
 `;
 export const BtnBox = styled.div`
   display: flex;
@@ -58,6 +59,7 @@ export const BtnBox = styled.div`
   padding: 5px;
   width: 100%;
   justify-content: right;
+  top: 43px;
 `;
 export const Btn = styled.button`
   position: relative;
