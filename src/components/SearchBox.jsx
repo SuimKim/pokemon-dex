@@ -24,6 +24,13 @@ const SearchBox = ({}) => {
     const typeValue = typeValueRef.current.value;
 
     switch (typeValue) {
+      case "num":
+        searchList = [
+          POKE_LIST.find((pokemon) => {
+            return pokemon.id === Number(searchKeyword);
+          }),
+        ];
+        break;
       case "name":
         searchList = POKE_LIST.filter((pokemon) => {
           return pokemon.korean_name.includes(searchKeyword);
@@ -35,6 +42,7 @@ const SearchBox = ({}) => {
         });
         break;
     }
+    console.log("searchList", searchList);
     dispatch(setPokemonList(searchList));
   };
 
@@ -42,8 +50,8 @@ const SearchBox = ({}) => {
     <>
       <Background>
         <Select name="searchValues" ref={typeValueRef}>
+          <option value="num">Num</option>
           <option value="name">이름</option>
-          {/* <option value="num">Num</option> */}
           <option value="types">속성</option>
         </Select>
         <InputBox>
