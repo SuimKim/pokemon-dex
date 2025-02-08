@@ -13,6 +13,7 @@ import { useRef } from "react";
 import { setPokemonList } from "../redux/pokeListSlice";
 import MOCK_DATA from "../mockData";
 import { useState } from "react";
+import { SEARCH } from "../assets/img/imgPath";
 
 const SearchBox = ({}) => {
   const POKE_LIST = MOCK_DATA;
@@ -97,7 +98,7 @@ const SearchBox = ({}) => {
             placeholder="포켓몬 입력!"
           />
           <BtnBox onClick={searchHandler}>
-            <img src="./src/assets/img/search.png" alt="" />
+            <img src={SEARCH} alt="" />
           </BtnBox>
         </InputBox>
         <DropDownBox ref={dropDownRef}>

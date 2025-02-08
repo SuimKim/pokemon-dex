@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { CARD_BACK } from "../assets/img/imgPath";
 
 export const MyPokemonBox = styled.div`
   display: grid;
@@ -15,7 +16,7 @@ export const ListBox = styled.div`
   box-shadow: 0px 10px 20px #bcbcbcaf;
   min-height: 240px;
   height: 13.5vw;
-  background-image: url("./src/assets/img/card-back.png");
+  background-image: url("https://github.com/SuimKim/pokemon-dex/blob/main/src/assets/img/card-back.png?raw=true");
   background-size: cover;
   background-position: center;
 `;

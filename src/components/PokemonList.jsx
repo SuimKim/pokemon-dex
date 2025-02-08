@@ -7,6 +7,7 @@ import { useSelector } from "react-redux";
 import { setMyPokemon } from "../redux/myPokeSlice";
 import { swalAlert } from "../style/SweetAlert";
 import { notify } from "../style/Toastify";
+import { DEX_LOGO } from "../assets/img/imgPath";
 
 const PokemonList = () => {
   const dispatch = useDispatch();
@@ -43,7 +44,7 @@ const PokemonList = () => {
       <SearchBox />
       <PokemonListBox>
         <DexLogoBox>
-          <img src="./src/assets/img/dex-logo.png" alt="" />
+          <img src={DEX_LOGO} alt="" />
         </DexLogoBox>
         {pokemonList.map((pokemon) => {
           return (

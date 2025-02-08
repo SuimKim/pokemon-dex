@@ -12,6 +12,7 @@ import { useDispatch } from "react-redux";
 import { setMyPokemon } from "../redux/myPokeSlice";
 import { notify } from "../style/Toastify";
 import { swalDeleteAlert } from "../style/SweetAlert";
+import { DASH_LOGO } from "../assets/img/imgPath";
 
 const Dashboard = () => {
   const dispatch = useDispatch();
@@ -40,7 +41,7 @@ const Dashboard = () => {
   return (
     <>
       <DashLogoBox>
-        <img src="./src/assets/img/dash-logo.png" alt="" />
+        <img src={DASH_LOGO} />
       </DashLogoBox>
       <Line />
       <DashBoardBox>
