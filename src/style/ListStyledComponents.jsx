@@ -13,6 +13,7 @@ export const PokemonListBox = styled.div`
   border-radius: 3vw;
   position: relative;
   border-top-right-radius: 0;
+  margin: 0 auto 0 auto;
 `;
 
 export const DexLogoBox = styled.div`

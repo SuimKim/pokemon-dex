@@ -17,6 +17,7 @@ export const CardBox = styled.div`
   background-color: white;
   z-index: 1;
   justify-items: center;
+  justify-content: center;
   box-shadow: 0 1vw 1vw #bcbcbcaf;
   /* min-height: 240px; */
   height: 16vw;

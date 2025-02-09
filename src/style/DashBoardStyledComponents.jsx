@@ -32,6 +32,7 @@ export const DashBoardBox = styled.div`
   background-color: #c3dbe3;
   box-sizing: border-box;
   position: relative;
+  margin: 0 auto 0 auto;
 `;
 
 export const DashLogoBox = styled.div`
