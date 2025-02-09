@@ -10,6 +10,7 @@ export const Logo = styled.img`
 export const BackBox = styled.div`
   width: 90%;
   justify-items: center;
+  justify-content: center;
   padding: 3% 0 5% 0;
   background-color: white;
   position: relative;
