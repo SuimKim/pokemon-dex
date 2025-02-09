@@ -7,7 +7,7 @@ import { useSelector } from "react-redux";
 import { setMyPokemon } from "../redux/myPokeSlice";
 import { swalAlert } from "../style/SweetAlert";
 import { notify } from "../style/Toastify";
-import { DEX_LOGO } from "../assets/img/imgPath";
+import { DEX_LOGO } from "../assets/imgPath";
 
 const PokemonList = () => {
   const dispatch = useDispatch();

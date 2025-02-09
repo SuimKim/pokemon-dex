@@ -6,7 +6,7 @@ import { store } from "../redux/store";
 import { Provider } from "react-redux";
 import { useEffect } from "react";
 import { ToastContainer } from "react-toastify";
-import { LOGO } from "../assets/img/imgPath";
+import { LOGO } from "../assets/imgPath";
 
 const Dex = () => {
   useEffect(() => {

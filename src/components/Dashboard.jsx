@@ -12,7 +12,7 @@ import { useDispatch } from "react-redux";
 import { setMyPokemon } from "../redux/myPokeSlice";
 import { notify } from "../style/Toastify";
 import { swalDeleteAlert } from "../style/SweetAlert";
-import { DASH_LOGO } from "../assets/img/imgPath";
+import { DASH_LOGO } from "../assets/imgPath";
 
 const Dashboard = () => {
   const dispatch = useDispatch();

@@ -5,7 +5,7 @@ import { BackBox, Logo } from "../style/DetailStyledComponents";
 import { store } from "../redux/store";
 import { Provider } from "react-redux";
 import { ToastContainer } from "react-toastify";
-import { LOGO } from "../assets/img/imgPath";
+import { LOGO } from "../assets/imgPath";
 const Detail = () => {
   const [selectedPokemon] = useSearchParams();
 

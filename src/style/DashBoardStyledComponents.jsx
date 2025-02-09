@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { CARD_BACK } from "../assets/img/imgPath";
 
 export const MyPokemonBox = styled.div`
   display: grid;

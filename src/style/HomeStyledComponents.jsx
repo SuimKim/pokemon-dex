@@ -6,7 +6,7 @@ export const BtnDex = styled.button`
   width: 30%;
   font-size: 2vw;
   background-color: white;
-  border: 5px solid #3466af;
+  border: 0.5vw solid #3466af;
   display: block;
   margin: 2.5vw auto 1.5vw auto;
   &:hover {
