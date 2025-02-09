@@ -58,7 +58,7 @@ export const DashLogoBox = styled.div`
   }
 
   @media only screen and (max-width: 480px) {
-    left: 0;
+    margin: 0 auto 0 auto;
   }
 `;
 
