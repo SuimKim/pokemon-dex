@@ -14,6 +14,11 @@ export const PokemonListBox = styled.div`
   position: relative;
   border-top-right-radius: 0;
   margin: 0 auto 0 auto;
+
+  @media only screen and (max-width: 480px) {
+    grid-template-columns: repeat(4, 1fr);
+    row-gap: 5vw;
+  }
 `;
 
 export const DexLogoBox = styled.div`

@@ -13,19 +13,22 @@ export const CoverBox = styled.div`
 export const CardBox = styled.div`
   border-radius: 2vw;
   position: relative;
-  /* margin: 10px; */
   background-color: white;
   z-index: 1;
   justify-items: center;
   justify-content: center;
   box-shadow: 0 1vw 1vw #bcbcbcaf;
-  /* min-height: 240px; */
   height: 16vw;
   width: 12vw;
   &:hover {
     box-shadow: 0px 0.5vw 1.5vw #989898ad;
     transition: all 0.3s;
     transform: translateY(-1vw);
+  }
+
+  @media only screen and (max-width: 480px) {
+    height: 20vw;
+    width: 15vw;
   }
 `;
 
@@ -39,6 +42,7 @@ export const NumBox = styled.div`
   top: 1vw;
   left: 1vw;
 `;
+
 export const NameTag = styled.p`
   position: absolute;
   top: 1.4vw;
@@ -46,13 +50,20 @@ export const NameTag = styled.p`
   font-size: 1.2vw;
   font-weight: bold;
 `;
+
 export const ImgBox = styled.img`
   position: relative;
   display: flex;
   top: 3.2vw;
   width: 75%;
   border: 0.1vw solid #ffcb05;
+
+  @media only screen and (max-width: 480px) {
+    top: 4vw;
+    margin: 0 auto 0 auto;
+  }
 `;
+
 export const BtnBox = styled.div`
   display: flex;
   position: relative;
@@ -61,7 +72,13 @@ export const BtnBox = styled.div`
   width: 100%;
   justify-content: right;
   top: 3.5vw;
+
+  @media only screen and (max-width: 480px) {
+    top: 4vw;
+    margin: 0 auto 0 auto;
+  }
 `;
+
 export const Btn = styled.button`
   position: relative;
   width: 40%;

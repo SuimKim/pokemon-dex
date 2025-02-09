@@ -5,9 +5,14 @@ export const MyPokemonBox = styled.div`
   grid-template-columns: repeat(auto-fill, 15%);
   justify-content: space-evenly;
   justify-items: center;
-  /* row-gap: 2vw; */
+
   width: 100%;
   box-sizing: border-box;
+
+  @media only screen and (max-width: 480px) {
+    grid-template-columns: repeat(3, 1fr);
+    row-gap: 3vw;
+  }
 `;
 
 export const EmptyCard = styled.div`
@@ -20,6 +25,11 @@ export const EmptyCard = styled.div`
   background-image: url("https://github.com/SuimKim/pokemon-dex/blob/main/src/assets/img/card-back.png?raw=true");
   background-size: cover;
   background-position: center;
+
+  @media only screen and (max-width: 480px) {
+    height: 24vw;
+    width: 18vw;
+  }
 `;
 
 export const DashBoardBox = styled.div`

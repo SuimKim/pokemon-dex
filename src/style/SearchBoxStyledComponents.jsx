@@ -3,10 +3,11 @@ import styled from "styled-components";
 export const Background = styled.div`
   width: 80%;
   display: flex;
-  position: relative;
   margin: 4% 0 1% 0;
-  left: 2vw;
-  left: -5%;
+
+  @media only screen and (max-width: 480px) {
+    margin: 4% auto 1% auto;
+  }
 `;
 
 export const Select = styled.select`
@@ -20,7 +21,8 @@ export const Select = styled.select`
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
   position: relative;
-  left: 9%;
+  left: 2vw;
+  background-color: white;
 
   &:hover {
     cursor: pointer;
@@ -40,7 +42,7 @@ export const InputBox = styled.div`
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
   box-sizing: border-box;
-  left: 9%;
+  left: 2vw;
 
   img {
     width: 3vw;
