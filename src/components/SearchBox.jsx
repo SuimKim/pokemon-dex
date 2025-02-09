@@ -14,6 +14,7 @@ import { setPokemonList } from "../redux/pokeListSlice";
 import MOCK_DATA from "../mockData";
 import { useState } from "react";
 import SEARCH from "../assets/img/search.png";
+import { errorToast } from "../style/Toastify";
 
 const SearchBox = ({}) => {
   const POKE_LIST = MOCK_DATA;
@@ -23,12 +24,14 @@ const SearchBox = ({}) => {
   const typeValueRef = useRef(null);
   const dropDownRef = useRef(null);
 
-  const [test, setTest] = useState(["검색어를 입력해봐요!"]);
+  const [autoFill, setAutoFill] = useState([]);
 
   const searchHandler = () => {
     let searchList = [];
     const typeValue = typeValueRef.current.value;
     const searchKeyword = searchValueRef.current.value;
+
+    !searchKeyword.trim() && errorToast("검색어를 입력해주세요!");
 
     switch (typeValue) {
       // case "num":
@@ -50,34 +53,37 @@ const SearchBox = ({}) => {
         break;
     }
     dispatch(setPokemonList(searchList));
+    setAutoFill([]);
   };
 
   const enterHandler = (e) => {
     if (e.key === "Enter") {
       searchHandler();
+      setAutoFill([]);
     }
   };
-
-  const openDropDownList = () => {
-    dropDownRef.current.style.display = "block";
-  };
-  const closeDropDownList = () => {
-    dropDownRef.current.style.display = "none";
+  const handleListClicked = (e) => {
+    searchValueRef.current.value = e.target.innerHTML;
+    searchHandler();
+    setAutoFill([]);
   };
 
-  const testFunc = (e) => {
-    if (e.target.value === "") {
-      setTest(["검색어를 입력해봐요!"]);
-      return;
+  const makeDropDownList = (e) => {
+    let timer = 0;
+
+    if (!timer) {
+      timer = setTimeout(() => {
+        timer = null;
+        const dropDownList = POKE_LIST.filter((pokemon) => {
+          return pokemon.korean_name.includes(e.target.value);
+        });
+        const dropDownNameList = dropDownList.map((poke) => {
+          return poke.korean_name;
+        });
+        setAutoFill(dropDownNameList);
+        e.target.value === "" && setAutoFill([]);
+      }, 500);
     }
-    const testList = POKE_LIST.filter((pokemon) => {
-      return pokemon.korean_name.includes(e.target.value);
-    });
-    const testNameList = testList.map((poke) => {
-      return poke.korean_name;
-    });
-    console.log("testList", testNameList);
-    setTest(testNameList);
   };
 
   return (
@@ -90,12 +96,11 @@ const SearchBox = ({}) => {
         </Select>
         <InputBox>
           <Input
+            id="search-box"
             type="text"
             ref={searchValueRef}
             onKeyDown={enterHandler}
-            onFocus={openDropDownList}
-            onBlur={closeDropDownList}
-            onChange={testFunc}
+            onChange={makeDropDownList}
             placeholder="포켓몬 입력!"
           />
           <BtnBox onClick={searchHandler}>
@@ -103,15 +108,9 @@ const SearchBox = ({}) => {
           </BtnBox>
         </InputBox>
         <DropDownBox ref={dropDownRef}>
-          {test.map((pokemon, index) => {
+          {autoFill.map((pokemon, index) => {
             return (
-              <DropDownList
-                onClick={(e) => {
-                  searchValueRef.current.value = e.target.innerHTML;
-                  searchHandler();
-                }}
-                key={index}
-              >
+              <DropDownList onClick={handleListClicked} key={index}>
                 {pokemon}
               </DropDownList>
             );

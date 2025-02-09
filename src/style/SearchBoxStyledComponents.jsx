@@ -4,6 +4,7 @@ export const Background = styled.div`
   width: 80%;
   display: flex;
   margin: 4% 0 1% 0;
+  position: relative;
 
   @media only screen and (max-width: 480px) {
     margin: 4% auto 1% auto;
@@ -78,16 +79,20 @@ export const DropDownBox = styled.div`
   border: 0.2vw solid #3466af;
   border-top: 0.1vw solid #b8c4d6;
   background-color: white;
-  /* height: 30px; */
-  top: 4.2vw;
-  left: 12%;
+  top: 4.1vw;
+  left: 14.8%;
   z-index: 2;
   text-align: left;
-  display: none;
+  font-size: 1vw;
+  /* min-height: 3vw; */
+  /* display: none; */
 `;
 
 export const DropDownList = styled.p`
   position: relative;
   padding: 1vw;
-  /* border-top: 1px solid black; */
+  &:hover {
+    cursor: pointer;
+    background-color: #f7f9fd;
+  }
 `;
