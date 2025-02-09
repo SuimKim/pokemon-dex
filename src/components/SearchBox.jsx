@@ -13,7 +13,7 @@ import { useRef } from "react";
 import { setPokemonList } from "../redux/pokeListSlice";
 import MOCK_DATA from "../mockData";
 import { useState } from "react";
-import { SEARCH } from "../assets/imgPath";
+import SEARCH from "../assets/img/search.png";
 
 const SearchBox = ({}) => {
   const POKE_LIST = MOCK_DATA;

@@ -7,12 +7,11 @@ import {
   Line,
   MyPokemonBox,
 } from "../style/DashBoardStyledComponents";
-import { useSelector } from "react-redux";
-import { useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { setMyPokemon } from "../redux/myPokeSlice";
 import { notify } from "../style/Toastify";
 import { swalDeleteAlert } from "../style/SweetAlert";
-import { DASH_LOGO } from "../assets/imgPath";
+import DASH_LOGO from "../assets/img/dash-logo.png";
 
 const Dashboard = () => {
   const dispatch = useDispatch();

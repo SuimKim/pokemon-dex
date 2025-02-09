@@ -6,7 +6,7 @@ import { store } from "../redux/store";
 import { Provider } from "react-redux";
 import { useEffect } from "react";
 import { ToastContainer } from "react-toastify";
-import { LOGO } from "../assets/imgPath";
+import MAIN_LOGO from "../assets/img/logo.svg";
 
 const Dex = () => {
   useEffect(() => {
@@ -16,7 +16,7 @@ const Dex = () => {
   return (
     <Provider store={store}>
       <ToastContainer />
-      <Logo src={LOGO} alt="" />{" "}
+      <Logo src={MAIN_LOGO} alt="" />{" "}
       <BackBox>
         <Dashboard />
         <PokemonList />

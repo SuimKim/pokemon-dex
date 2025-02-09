@@ -1,15 +1,15 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { Ball, BtnDex, Logo } from "../style/HomeStyledComponents";
-import { BALL, LOGO } from "../assets/imgPath";
-import ball from "../assets/img/main-ball.png";
+import POKE_BALL from "../assets/img/main-ball.png";
+import MAIN_LOGO from "../assets/img/logo.svg";
 
 const Home = () => {
   const navigate = useNavigate();
 
   return (
     <>
-      <Logo src={"/public/img/logo.svg"} alt="" />
+      <Logo src={MAIN_LOGO} alt="" />
       <BtnDex
         onClick={() => {
           navigate("/dex");
@@ -17,7 +17,7 @@ const Home = () => {
       >
         Open POKEMON Book!
       </BtnDex>
-      <Ball src={ball} />
+      <Ball src={POKE_BALL} />
     </>
   );
 };
