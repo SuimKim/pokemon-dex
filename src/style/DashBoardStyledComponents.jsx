@@ -56,6 +56,10 @@ export const DashLogoBox = styled.div`
   img {
     width: 100%;
   }
+
+  @media only screen and (max-width: 480px) {
+    left: 0;
+  }
 `;
 
 export const Line = styled.hr`
