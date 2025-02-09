@@ -6,6 +6,7 @@ export const Background = styled.div`
   position: relative;
   margin: 4% 0 1% 0;
   left: 2vw;
+  left: -5%;
 `;
 
 export const Select = styled.select`
@@ -18,6 +19,8 @@ export const Select = styled.select`
   border-radius: 5vw;
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
+  position: relative;
+  left: 9%;
 
   &:hover {
     cursor: pointer;
@@ -37,6 +40,7 @@ export const InputBox = styled.div`
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
   box-sizing: border-box;
+  left: 9%;
 
   img {
     width: 3vw;
