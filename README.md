@@ -4,6 +4,10 @@
 
 <img src="/readmeImg/preview.gif">
 
+<br>
+
+<img src="/readmeImg/mobile1.jpg" width=48%>
+<img src="/readmeImg/mobile2.jpg" width=48%>
 <br><br><br>
 
 ## 🍑 프로젝트 소개
