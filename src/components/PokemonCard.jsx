@@ -11,9 +11,8 @@ import {
 } from "../style/CardStyledComponents";
 
 const PokemonCard = ({ item, handlerBtn, label }) => {
-  const { id, img_url, korean_name } = item;
-
   const navigate = useNavigate();
+  const { id, img_url, korean_name } = item;
 
   const handleCardClick = (e) => {
     sessionStorage.setItem("scroll", window.scrollY);
