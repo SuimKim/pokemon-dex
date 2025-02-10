@@ -6,6 +6,7 @@ import DEX_LOGO from "../assets/img/dex-logo.png";
 import { useMyPokemon } from "../hook/useMyPokemon";
 import { useDispatch } from "react-redux";
 import { resetList } from "../redux/pokeListSlice";
+import { setSearchValue } from "../redux/searchValueSlice";
 
 const PokemonList = () => {
   const dispatch = useDispatch();
@@ -14,6 +15,7 @@ const PokemonList = () => {
 
   const handleReset = () => {
     dispatch(resetList());
+    dispatch(setSearchValue(""));
   };
 
   return (

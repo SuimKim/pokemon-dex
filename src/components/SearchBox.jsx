@@ -15,24 +15,23 @@ import MOCK_DATA from "../mockData";
 import { useState } from "react";
 import SEARCH from "../assets/img/search.png";
 import { errorToast } from "../style/Toastify";
+import { useSelector } from "react-redux";
+import { setSearchValue } from "../redux/searchValueSlice";
 
 const SearchBox = ({}) => {
   const POKE_LIST = MOCK_DATA;
 
   const dispatch = useDispatch();
-  const searchValueRef = useRef(null);
   const typeValueRef = useRef(null);
-  const dropDownRef = useRef(null);
+  const searchValue = useSelector((a) => a.searchValueSlice);
 
   const [autoFill, setAutoFill] = useState([]);
 
   const searchHandler = () => {
-    let searchList = [];
     const typeValue = typeValueRef.current.value;
-    const searchKeyword = searchValueRef.current.value;
+    !searchValue.trim() && errorToast("검색어를 입력해주세요!");
 
-    !searchKeyword.trim() && errorToast("검색어를 입력해주세요!");
-
+    let searchList = [];
     switch (typeValue) {
       // case "num":
       //   searchList = [
@@ -43,12 +42,12 @@ const SearchBox = ({}) => {
       //   break;
       case "name":
         searchList = POKE_LIST.filter((pokemon) => {
-          return pokemon.korean_name.includes(searchKeyword);
+          return pokemon.korean_name.includes(searchValue);
         });
         break;
       case "types":
         searchList = POKE_LIST.filter((pokemon) => {
-          return pokemon.types.includes(searchKeyword);
+          return pokemon.types.includes(searchValue);
         });
         break;
     }
@@ -58,17 +57,19 @@ const SearchBox = ({}) => {
 
   const enterHandler = (e) => {
     if (e.key === "Enter") {
+      !searchValue.trim() && errorToast("검색어를 입력해주세요!");
       searchHandler();
       setAutoFill([]);
     }
   };
+
   const handleListClicked = (e) => {
-    searchValueRef.current.value = e.target.innerHTML;
+    setSearchValue(e.target.innerHTML);
     searchHandler();
     setAutoFill([]);
   };
 
-  const makeDropDownList = (e) => {
+  const handleInputChange = (e) => {
     let timer = 0;
 
     if (!timer) {
@@ -84,6 +85,8 @@ const SearchBox = ({}) => {
         e.target.value === "" && setAutoFill([]);
       }, 500);
     }
+
+    dispatch(setSearchValue(e.target.value));
   };
 
   return (
@@ -98,16 +101,16 @@ const SearchBox = ({}) => {
           <Input
             id="search-box"
             type="text"
-            ref={searchValueRef}
+            value={searchValue}
+            onChange={handleInputChange}
             onKeyDown={enterHandler}
-            onChange={makeDropDownList}
             placeholder="포켓몬 입력!"
           />
           <BtnBox onClick={searchHandler}>
             <img src={SEARCH} alt="" />
           </BtnBox>
         </InputBox>
-        <DropDownBox ref={dropDownRef}>
+        <DropDownBox>
           {autoFill.map((pokemon, index) => {
             return (
               <DropDownList onClick={handleListClicked} key={index}>
