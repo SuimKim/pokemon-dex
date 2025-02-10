@@ -33,13 +33,18 @@ const SearchBox = ({}) => {
 
     let searchList = [];
     switch (typeValue) {
-      // case "num":
-      //   searchList = [
-      //     POKE_LIST.find((pokemon) => {
-      //       return pokemon.id === Number(searchKeyword);
-      //     }),
-      //   ];
-      //   break;
+      case "num":
+        if (Number(searchValue) !== Number) {
+          errorToast("숫자로 입력해주세요!");
+          return;
+        } else {
+          searchList = [
+            POKE_LIST.find((pokemon) => {
+              return pokemon.id === Number(searchValue);
+            }),
+          ];
+          break;
+        }
       case "name":
         searchList = POKE_LIST.filter((pokemon) => {
           return pokemon.korean_name.includes(searchValue);
@@ -93,9 +98,9 @@ const SearchBox = ({}) => {
     <>
       <Background>
         <Select name="searchValues" ref={typeValueRef}>
-          {/* <option value="num">Num</option> */}
           <option value="name">이름</option>
           <option value="types">속성</option>
+          <option value="num">Num</option>
         </Select>
         <InputBox>
           <Input
