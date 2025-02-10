@@ -9,12 +9,12 @@ import {
   BtnBox,
   Btn,
 } from "../style/DetailStyledComponents";
-import { useAdd } from "../hook/useAdd";
+import { useMyPokemon } from "../hook/useMyPokemon";
 
 const PokemonDetail = ({ queryId }) => {
   const navigate = useNavigate();
 
-  const [pokemonList, addMyPokemon] = useAdd();
+  const { pokemonList, addMyPokemon } = useMyPokemon();
 
   const clickedPokemon = pokemonList.find((a) => {
     return a.id === Number(queryId);

@@ -3,10 +3,10 @@ import PokemonCard from "./PokemonCard";
 import SearchBox from "../components/SearchBox";
 import { DexLogoBox, PokemonListBox } from "../style/ListStyledComponents";
 import DEX_LOGO from "../assets/img/dex-logo.png";
-import { useAdd } from "../hook/useAdd";
+import { useMyPokemon } from "../hook/useMyPokemon";
 
 const PokemonList = () => {
-  const [pokemonList, addMyPokemon] = useAdd();
+  const { pokemonList, addMyPokemon } = useMyPokemon();
 
   return (
     <>
