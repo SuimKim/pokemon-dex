@@ -37,7 +37,7 @@ const SearchBox = ({}) => {
     let searchList = [];
     switch (typeValue) {
       case "num":
-        if (isNaN(searchValue)) {
+        if (!Number(searchValue)) {
           errorToast("숫자로 입력해주세요!");
           return;
         } else {
