@@ -10,8 +10,8 @@ export const MyPokemonBox = styled.div`
   box-sizing: border-box;
 
   @media only screen and (max-width: 480px) {
-    grid-template-columns: repeat(3, 1fr);
-    row-gap: 3vw;
+    grid-template-columns: repeat(3, 0);
+    row-gap: 4vw;
   }
 `;
 

@@ -76,16 +76,13 @@ export const Input = styled.input`
 export const DropDownBox = styled.div`
   position: absolute;
   width: 41.8%;
-  border: 0.2vw solid #3466af;
-  border-top: 0.1vw solid #b8c4d6;
+  border: 0.1vw solid #3466af;
   background-color: white;
-  top: 4.1vw;
-  left: 14.8%;
+  top: 4.15vw;
+  left: 15%;
   z-index: 2;
   text-align: left;
   font-size: 1vw;
-  /* min-height: 3vw; */
-  /* display: none; */
 `;
 
 export const DropDownList = styled.p`
