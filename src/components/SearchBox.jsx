@@ -37,16 +37,16 @@ const SearchBox = ({}) => {
     let searchList = [];
     switch (typeValue) {
       case "num":
-        if (Number(searchValue)) {
+        if (isNaN(searchValue)) {
+          errorToast("숫자로 입력해주세요!");
+          return;
+        } else {
           searchList = [
             POKE_LIST.find((pokemon) => {
               return pokemon.id === Number(searchValue);
             }),
           ];
           break;
-        } else {
-          errorToast("숫자로 입력해주세요!");
-          return;
         }
       case "name":
         searchList = POKE_LIST.filter((pokemon) => {
