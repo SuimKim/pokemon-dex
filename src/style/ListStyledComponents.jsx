@@ -35,4 +35,8 @@ export const DexLogoBox = styled.div`
   img {
     width: 100%;
   }
+
+  &:hover {
+    cursor: pointer;
+  }
 `;

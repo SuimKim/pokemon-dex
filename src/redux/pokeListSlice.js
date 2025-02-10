@@ -8,8 +8,11 @@ const pokeListSlice = createSlice({
     setPokemonList: (state, action) => {
       return action.payload;
     },
+    resetList: (state) => {
+      return MOCK_DATA;
+    },
   },
 });
 
-export const { setPokemonList } = pokeListSlice.actions;
+export const { setPokemonList, resetList } = pokeListSlice.actions;
 export default pokeListSlice.reducer;
