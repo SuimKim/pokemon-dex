@@ -3,7 +3,8 @@ import styled from "styled-components";
 export const PokemonListBox = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fill, 15%);
-  gap: 2vw;
+  gap: 3vw;
+  /* row-gap: 2vw; */
   justify-content: space-evenly;
   justify-items: center;
   width: 90%;
