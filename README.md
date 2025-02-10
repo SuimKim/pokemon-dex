@@ -6,8 +6,7 @@
 
 <br>
 
-<img src="/readmeImg/mobile1.jpg" width=40%>
-<img src="/readmeImg/mobile2.jpg" width=40%>
+<img src="/readmeImg/mobile1.jpg" width=40%> <img src="/readmeImg/mobile2.jpg" width=40%>
 <br><br><br>
 
 ## 🍑 프로젝트 소개
