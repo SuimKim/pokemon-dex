@@ -35,20 +35,29 @@ export const CardBox = styled.div`
 export const NumBox = styled.div`
   position: absolute;
   background-color: #ffbd6c;
-  padding: 0.6vw 0.5vw 0.4vw 0.5vw;
+  padding: 0.6vw 0.5vw 0.5vw 0.5vw;
   border-radius: 1vw;
   width: 2vw;
   font-size: 0.8vw;
-  top: 1vw;
+  top: 0.8vw;
   left: 1vw;
+  @media only screen and (max-width: 480px) {
+    top: 1.2vw;
+    left: 1.2vw;
+  }
 `;
 
 export const NameTag = styled.p`
   position: absolute;
-  top: 1.4vw;
+  top: 1.2vw;
   left: 4.5vw;
   font-size: 1.2vw;
   font-weight: bold;
+
+  @media only screen and (max-width: 480px) {
+    top: 1.53vw;
+    left: 5vw;
+  }
 `;
 
 export const ImgBox = styled.img`
