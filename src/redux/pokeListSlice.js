@@ -5,7 +5,9 @@ const pokeListSlice = createSlice({
   name: "pokemonList",
   initialState: MOCK_DATA,
   reducers: {
-    setPokemonList: (state, action) => (state = action.payload),
+    setPokemonList: (state, action) => {
+      return action.payload;
+    },
   },
 });
 
