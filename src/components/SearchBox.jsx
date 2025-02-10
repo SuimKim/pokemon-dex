@@ -29,7 +29,10 @@ const SearchBox = ({}) => {
 
   const searchHandler = () => {
     const typeValue = typeValueRef.current.value;
-    !searchValue.trim() && errorToast("검색어를 입력해주세요!");
+    if (!searchValue.trim()) {
+      errorToast("검색어를 입력해주세요!");
+      return;
+    }
 
     let searchList = [];
     switch (typeValue) {
@@ -62,7 +65,7 @@ const SearchBox = ({}) => {
 
   const enterHandler = (e) => {
     if (e.key === "Enter") {
-      !searchValue.trim() && errorToast("검색어를 입력해주세요!");
+      // !searchValue.trim() && errorToast("검색어를 입력해주세요!");
       searchHandler();
       setAutoFill([]);
     }
