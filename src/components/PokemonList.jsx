@@ -15,6 +15,7 @@ const PokemonList = () => {
   const handleReset = () => {
     dispatch(resetList());
   };
+
   return (
     <>
       <SearchBox />

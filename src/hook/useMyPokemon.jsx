@@ -30,13 +30,15 @@ export const useMyPokemon = () => {
 
     dispatch(setMyPokemon(newMyPokemon));
     localStorage.setItem("pokemon", JSON.stringify(newMyPokemon));
-    notify("추가 완료!");
+    notify(`${selectedPokemon.korean_name} 추가 완료!`);
   };
 
   const removeMyPokemon = (id) => {
+    const selectPokemon = pokemonList.find((pokemon) => pokemon.id === id); // 삭제 알람 띄우기용
+
     swalDeleteAlert().then((result) => {
       if (result.isConfirmed) {
-        notify("삭제 완료!");
+        notify(`${selectPokemon.korean_name} 삭제 완료!`);
 
         const deletedPokemon = myPokemon.map((a) => {
           return a !== null && a.id === id ? null : a;
