@@ -12,6 +12,11 @@ import { setMyPokemon } from "../redux/myPokeSlice";
 import { notify } from "../style/Toastify";
 import { swalDeleteAlert } from "../style/SweetAlert";
 import DASH_LOGO from "../assets/img/dash-logo.png";
+import { memo } from "react";
+
+const EmptyItem = memo(() => {
+  return <EmptyCard />;
+});
 
 const Dashboard = () => {
   const dispatch = useDispatch();
@@ -47,7 +52,7 @@ const Dashboard = () => {
         <MyPokemonBox>
           {myPokemon.map((pokemon, index) => {
             return pokemon === null ? (
-              <EmptyCard key={index} />
+              <EmptyItem key={index} />
             ) : (
               <PokemonCard
                 key={pokemon.id + pokemon.korean_name}
