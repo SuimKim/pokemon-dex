@@ -1,10 +1,6 @@
 # React 기반 포켓몬 도감
 
-🔗 [바로가기 Click !!](https://pokemon-dex-suimkims-projects.vercel.app/)
-
-<br><br>
-
-## 📷 Preview
+#### 📷 Preview
 
 <img src="/readmeImg/preview.gif">
 
@@ -67,75 +63,50 @@ css 미디어 쿼리를 활용해서 모바일 대응 반응형 페이지로 제
 
 ## 🍑 프로젝트 주요기능
 
+🔗 [바로가기 Click !!](https://pokemon-dex-suimkims-projects.vercel.app/)
+
+<br>
+
 ### 1. 포켓몬 리스트 조회
 
-<img src="/readmeImg/list.png">
-
 - 기본 데이터의 리스트가 출력됩니다.
-- 나의 포켓몬에 추가할 수 있는 버튼이 있습니다.
-- 카드를 누르면 해당 포켓몬의 상세페이지로 이동합니다.
-- grid 속성과 상대크기를 활용하여 반응형으로 구현했습니다.
+- 나의 포켓몬 리스트에 추가할 수 있는 버튼이 있습니다.
 
 <br>
 
 ### 2. 나의 포켓몬 추가
 
-<img src="/readmeImg/add1.gif">
-
-- 추가 버튼을 클릭해서 나의 포켓몬 리스트에 추가되면, 대쉬보드에 해당 포켓몬 카드가 추가됩니다.
+- 추가 버튼을 클릭하면 대쉬보드에 해당 포켓몬 카드가 추가됩니다.
 - 로컬스토리지에 데이터를 저장해서 새로고침이나 재접속을 해도 데이터가 유지됩니다.
-
-<br>
-
-<img src="/readmeImg/add2.gif">
-
 - 중복 포켓몬은 저장할 수 없으며, 6개까지만 추가할 수 있습니다.
-- `toastify`와 `sweetAlert` 라이브러리로 예외처리 알림을 구현했습니다.
 
 <br>
 
 ### 3. 나의 포켓몬 삭제
 
-<img src="/readmeImg/delete.gif">
-
-- 대쉬보드 카드의 삭제버튼으로 나의 포켓몬 리스트에서 삭제할 수 있습니다.
+- 대쉬보드 카드의 삭제 버튼으로 나의 포켓몬 리스트에서 삭제할 수 있습니다.
 - 중간에 있는 카드를 삭제하더라도, 포켓몬은 왼쪽에서부터 순차적으로 띄워집니다.
   <br>
 
 ### 4. 포켓몬 상세보기
 
-<img src="/readmeImg/detail.png">
-
 - 리스트나 대쉬보드의 포켓몬 카드를 클릭해서 상세페이지 접속이 가능합니다.
-- 추가하기 버튼을 누르면 동일하게 추가가 가능하고, 뒤로가기 버튼을 클릭하면 dex창으로 이동합니다.
+- 추가하기 버튼을 누르면 동일하게 추가되고, 뒤로가기 버튼을 클릭하면 dex창으로 이동합니다.
 - 다시 dex 창으로 이동했을 땐 이전 스크롤 위치 그대로 이동하게 됩니다.
 
 <br>
 
 ### 5. 포켓몬 검색
 
-<img src="/readmeImg/search1.gif">
-
+- 이름 / 속성 / ID Number로 검색이 가능합니다.
 - 검색창에 키워드를 입력하면 아래에 자동완성 리스트가 뜹니다.
-- 검색 버튼 클릭 / 엔터키 입력 / 자동완성 데이터 클릭으로 검색이 가능합니다.
-
-<br>
-
-<img src="/readmeImg/search2.png">
-<img src="/readmeImg/search3.png">
-
-- 속성과 ID Number로도 검색이 가능합니다.
-
-<br>
-
-<img src="/readmeImg/search4.gif">
-
-- ID 검색은 숫자로만 검색이 가능하도록 구현했습니다.
+- 검색 버튼 클릭 / 엔터키 입력 / 자동완성 리스트 클릭으로 검색이 가능합니다.
+- ID 검색은 숫자로만 검색이 가능하도록 구현했고, 문자를 입력하면 예외처리를 통해 사용자에게 알려줍니다.
 - 오른쪽 상단 덱스 로고를 클릭하면 리스트가 초기화됩니다.
 
 <br><br><br>
 
-## 🍑 프로젝트 관련 기록 및 회고
+## 🍑 프로젝트 관련 기록
 
 [![Velog's GitHub stats](https://velog-readme-stats.vercel.app/api?name=_kimsuim)](https://velog.io/@_kimsuim)
 
@@ -154,12 +125,6 @@ css 미디어 쿼리를 활용해서 모바일 대응 반응형 페이지로 제
 - 🔗 [RTK로 리팩토링](https://velog.io/@_kimsuim/트러블슈팅RTK-리팩토링)
 - 🔗 [검색 기능 구현하기](https://velog.io/@_kimsuim/트러블슈팅검색기능)
 - 🔗 [ID(숫자) 검색 예외처리](https://velog.io/@_kimsuim/트러블슈팅숫자-검색-예외처리)
-
-<br>
-
-### 3. 회고
-
-🔗 []()
 
 <br><br><br>
 
