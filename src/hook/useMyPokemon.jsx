@@ -2,12 +2,21 @@ import { useSelector, useDispatch } from "react-redux";
 import { swalAlert, swalDeleteAlert } from "../style/SweetAlert";
 import { notify } from "../style/Toastify";
 import { setMyPokemon } from "../redux/myPokeSlice";
-
+// ---------------------------------------------------------
+/**
+ * @returns {{ myPokemon, pokemonList, addMyPokemon, removeMyPokemon }} 나의 포켓몬 리스트, 전체 리스트, 추가 삭제 함수가 담긴 객체
+ */
 export const useMyPokemon = () => {
   const dispatch = useDispatch();
   const myPokemon = useSelector((a) => a.myPokeSlice);
   const pokemonList = useSelector((a) => a.pokeListSlice);
 
+  /**
+   * 나의 포켓몬 리스트에 선택한 포켓몬을 추가한다.
+   * 6개 이상 선택하거나 이미 추가된 포켓몬을 선택하면 알림을 띄우고 실행을 종료한다.
+   * 선택한 포켓몬을 기존 배열을 복사한 새로운 배열의 null 위치에 추가한 뒤 myPokemon 상태값을 해당 배열로 변경한다.
+   * @param {number} pokeId 선택한 포켓몬의 아이디 값이 들어간다.
+   */
   const addMyPokemon = (pokeId) => {
     const firstNullIndex = myPokemon.indexOf(null);
     if (firstNullIndex === -1) {
@@ -23,7 +32,7 @@ export const useMyPokemon = () => {
       return;
     }
 
-    const selectedPokemon = pokemonList.find((a) => a.id === pokeId); // 선택한 포켓몬
+    const selectedPokemon = pokemonList.find((a) => a.id === pokeId); // 선택한 포켓몬 가져오기
 
     const newMyPokemon = [...myPokemon]; // 새로운 myPokemon 배열을 만들어서 기존 배열 복사
     newMyPokemon[firstNullIndex] = selectedPokemon; // 새로 만든 배열의 첫번째 비어있는 인덱스를 선택한 포켓몬으로 교체
@@ -32,7 +41,13 @@ export const useMyPokemon = () => {
     localStorage.setItem("pokemon", JSON.stringify(newMyPokemon));
     notify(`${selectedPokemon.korean_name} 추가 완료!`);
   };
-
+  // ------------------------------------------------------------------------------------------------------------
+  /**
+   * 나의 포켓몬 리스트에서 선택한 포켓몬을 삭제한다.
+   * 선택한 포켓몬을 기존 배열을 복사한 새로운 배열에서 삭제한 뒤 null 값으로 채운다.
+   * 만들어진 새로운 배열은 null 값이 뒤로 가도록 정렬한 뒤 myPokemon 상태값을 해당 배열로 변경한다.
+   * @param {number} id 선택한 포켓몬의 아이디 값이 들어간다.
+   */
   const removeMyPokemon = (id) => {
     const selectPokemon = pokemonList.find((pokemon) => pokemon.id === id); // 삭제 알람 띄우기용
 

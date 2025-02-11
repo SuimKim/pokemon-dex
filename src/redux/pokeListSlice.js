@@ -10,7 +10,7 @@ const pokeListSlice = createSlice({
     },
     resetList: (state) => {
       return MOCK_DATA;
-    },
+    }, // 검색 목록 초기화를 위한 리듀서
   },
 });
 

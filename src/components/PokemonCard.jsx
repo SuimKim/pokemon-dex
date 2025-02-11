@@ -12,11 +12,12 @@ import {
 
 const PokemonCard = ({ item, handlerBtn, label }) => {
   const navigate = useNavigate();
+
   const { id, img_url, korean_name } = item;
 
   const handleCardClick = (e) => {
-    sessionStorage.setItem("scroll", window.scrollY);
-    e.target.id === "card-box" && navigate(`/pokemon-detail?id=${id}`);
+    sessionStorage.setItem("scroll", window.scrollY); // 카드를 클릭했을 당시 스크롤을 세션에 저장
+    e.target.id === "card-box" && navigate(`/pokemon-detail?id=${id}`); // 디테일 페이지로 이동
   };
 
   return (

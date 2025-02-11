@@ -17,7 +17,7 @@ const PokemonDetail = ({ queryId }) => {
   const { pokemonList, addMyPokemon } = useMyPokemon();
 
   const clickedPokemon = pokemonList.find((a) => {
-    return a.id === Number(queryId);
+    return a.id === Number(queryId); // 쿼리아이디 값으로 리스트에서 해당 포켓몬 꺼내오기
   });
 
   const { id, korean_name, img_url, types, description } = clickedPokemon;

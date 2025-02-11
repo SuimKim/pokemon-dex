@@ -14,8 +14,8 @@ const PokemonList = () => {
   const { pokemonList, addMyPokemon } = useMyPokemon();
 
   const handleReset = () => {
-    dispatch(resetList());
-    dispatch(setSearchValue(""));
+    dispatch(resetList()); // 리스트 초기화
+    dispatch(setSearchValue("")); // 인풋창 초기화
   };
 
   return (

@@ -16,7 +16,6 @@ const EmptyItem = memo(() => {
 });
 
 const Dashboard = () => {
-  // const myPokemon = useSelector((a) => a.myPokeSlice);
   const { myPokemon, removeMyPokemon } = useMyPokemon();
 
   return (

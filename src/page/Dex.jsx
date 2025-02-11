@@ -10,7 +10,7 @@ import MAIN_LOGO from "../assets/img/logo.svg";
 
 const Dex = () => {
   useEffect(() => {
-    window.scroll(0, sessionStorage.scroll);
+    window.scroll(0, sessionStorage.scroll); // 최초 렌더링 시 세션에 저장된 스크롤 위치로 이동한다.
   }, []);
 
   return (

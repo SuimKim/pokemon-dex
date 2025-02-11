@@ -26,9 +26,29 @@ const SearchBox = ({}) => {
   const searchValue = useSelector((a) => a.searchValueSlice);
 
   const [autoFill, setAutoFill] = useState([]);
+  const [keyword, setKeyword] = useState("");
 
+  /**
+   *
+   * @param {event} e
+   * searchValue 상태를 해당 객체의 value 값으로 바꾼 뒤 autoFill의 상태를 빈 값으로 바꾸고 searchHandler()를 호출한다.
+   */
+  const handleListClicked = (e) => {
+    setKeyword(e.target.innerHTML);
+    setAutoFill([]);
+    searchHandler();
+  };
+
+  console.log("searchValue", searchValue);
+
+  /**
+   *
+   * @returns typeValue 값에 따라 해당하는 로직을 실행한다.
+   * setPokemonList의 상태를 검색 결과에 따라 필터링 된 리스트로 교체한 뒤 autoFill의 상태를 빈 값으로 바꾼다.
+   */
   const searchHandler = () => {
     const typeValue = typeValueRef.current.value;
+    console.log("함수속", searchValue);
     if (!searchValue.trim()) {
       errorToast("검색어를 입력해주세요!");
       return;
@@ -63,20 +83,25 @@ const SearchBox = ({}) => {
     setAutoFill([]);
   };
 
+  /**
+   *
+   * @param {event} e
+   * 엔터키를 누르면 searchHandler()가 호출되고 autoFill의 상태를 빈 값으로 교체한다.
+   */
   const enterHandler = (e) => {
     if (e.key === "Enter") {
-      // !searchValue.trim() && errorToast("검색어를 입력해주세요!");
       searchHandler();
       setAutoFill([]);
     }
   };
 
-  const handleListClicked = (e) => {
-    setSearchValue(e.target.innerHTML);
-    searchHandler();
-    setAutoFill([]);
-  };
-
+  /**
+   *
+   * @param {event} e
+   * 쓰로틀링 적용
+   * 인풋 밸류에 따라 필터링 된 포켓몬 이름이 자동완성 창에 리스트로 출력된다.
+   * searchValue의 상태를 e.target.value로 교체한다.
+   */
   const handleInputChange = (e) => {
     let timer = 0;
 
