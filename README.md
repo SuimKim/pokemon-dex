@@ -2,6 +2,8 @@
 
 #### 📷 Preview
 
+🔗 [바로가기 Click !!](https://pokemon-dex-suimkims-projects.vercel.app/)
+
 <img src="/readmeImg/preview.gif">
 
 <br>
@@ -67,10 +69,6 @@ css 미디어 쿼리를 활용해서 모바일 대응 반응형 페이지로 제
 
 ## 🍑 프로젝트 주요기능
 
-🔗 [바로가기 Click !!](https://pokemon-dex-suimkims-projects.vercel.app/)
-
-<br>
-
 ### 1. 포켓몬 리스트 조회
 
 - 기본 데이터의 리스트가 출력됩니다.
@@ -126,18 +124,6 @@ css 미디어 쿼리를 활용해서 모바일 대응 반응형 페이지로 제
 - 🔗 [RTK로 리팩토링](https://velog.io/@_kimsuim/트러블슈팅RTK-리팩토링)
 - 🔗 [검색 기능 구현하기](https://velog.io/@_kimsuim/트러블슈팅검색기능)
 - 🔗 [ID(숫자) 검색 예외처리](https://velog.io/@_kimsuim/트러블슈팅숫자-검색-예외처리)
-
-<br><br><br>
-
-## 🍑 향후 계획
-
-1.
-
-<br><br><br>
-
-## 🍑 느낀점
-
-~ 느낀점 ~
 
 <br><br><br>
 
