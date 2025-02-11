@@ -8,15 +8,14 @@ import {
   DropDownBox,
   DropDownList,
 } from "../style/SearchBoxStyledComponents";
-import { useDispatch } from "react-redux";
-import { useRef } from "react";
-import { setPokemonList } from "../redux/pokeListSlice";
-import MOCK_DATA from "../mockData";
-import { useState } from "react";
-import SEARCH from "../assets/img/search.png";
 import { errorToast } from "../style/Toastify";
-import { useSelector } from "react-redux";
+import { useRef, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { setPokemonList } from "../redux/pokeListSlice";
 import { setSearchValue } from "../redux/searchValueSlice";
+import SEARCH from "../assets/img/search.png";
+import MOCK_DATA from "../mockData";
+import { useEffect } from "react";
 
 const SearchBox = ({}) => {
   const POKE_LIST = MOCK_DATA;
@@ -26,35 +25,30 @@ const SearchBox = ({}) => {
   const searchValue = useSelector((a) => a.searchValueSlice);
 
   const [autoFill, setAutoFill] = useState([]);
-  const [keyword, setKeyword] = useState("");
 
   /**
-   *
    * @param {event} e
    * searchValue 상태를 해당 객체의 value 값으로 바꾼 뒤 autoFill의 상태를 빈 값으로 바꾸고 searchHandler()를 호출한다.
+   * 클릭하면 해당 검색어로 검색 -> 비동기 실행됨 / 해결못함 ㅜㅜ
    */
   const handleListClicked = (e) => {
-    setKeyword(e.target.innerHTML);
+    dispatch(setSearchValue(e.target.innerHTML));
     setAutoFill([]);
     searchHandler();
   };
 
-  console.log("searchValue", searchValue);
-
   /**
-   *
    * @returns typeValue 값에 따라 해당하는 로직을 실행한다.
    * setPokemonList의 상태를 검색 결과에 따라 필터링 된 리스트로 교체한 뒤 autoFill의 상태를 빈 값으로 바꾼다.
    */
   const searchHandler = () => {
+    let searchList = [];
     const typeValue = typeValueRef.current.value;
     console.log("함수속", searchValue);
     if (!searchValue.trim()) {
       errorToast("검색어를 입력해주세요!");
       return;
     }
-
-    let searchList = [];
     switch (typeValue) {
       case "num":
         if (!Number(searchValue)) {
