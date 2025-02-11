@@ -27,49 +27,38 @@ const SearchBox = ({}) => {
   const [autoFill, setAutoFill] = useState([]);
 
   /**
-   * @param {event} e
-   * searchValue 상태를 해당 객체의 value 값으로 바꾼 뒤 autoFill의 상태를 빈 값으로 바꾸고 searchHandler()를 호출한다.
-   * 클릭하면 해당 검색어로 검색 -> 비동기 실행됨 / 해결못함 ㅜㅜ
-   */
-  const handleListClicked = (e) => {
-    dispatch(setSearchValue(e.target.innerHTML));
-    setAutoFill([]);
-    searchHandler();
-  };
-
-  /**
    * @returns typeValue 값에 따라 해당하는 로직을 실행한다.
    * setPokemonList의 상태를 검색 결과에 따라 필터링 된 리스트로 교체한 뒤 autoFill의 상태를 빈 값으로 바꾼다.
    */
-  const searchHandler = () => {
+  const searchHandler = (keyword) => {
     let searchList = [];
     const typeValue = typeValueRef.current.value;
     console.log("함수속", searchValue);
-    if (!searchValue.trim()) {
+    if (!keyword.trim()) {
       errorToast("검색어를 입력해주세요!");
       return;
     }
     switch (typeValue) {
       case "num":
-        if (!Number(searchValue)) {
+        if (!Number(keyword)) {
           errorToast("숫자로 입력해주세요!");
           return;
         } else {
           searchList = [
             POKE_LIST.find((pokemon) => {
-              return pokemon.id === Number(searchValue);
+              return pokemon.id === Number(keyword);
             }),
           ];
           break;
         }
       case "name":
         searchList = POKE_LIST.filter((pokemon) => {
-          return pokemon.korean_name.includes(searchValue);
+          return pokemon.korean_name.includes(keyword);
         });
         break;
       case "types":
         searchList = POKE_LIST.filter((pokemon) => {
-          return pokemon.types.includes(searchValue);
+          return pokemon.types.includes(keyword);
         });
         break;
     }
@@ -84,7 +73,7 @@ const SearchBox = ({}) => {
    */
   const enterHandler = (e) => {
     if (e.key === "Enter") {
-      searchHandler();
+      searchHandler(searchValue);
       setAutoFill([]);
     }
   };
@@ -116,6 +105,19 @@ const SearchBox = ({}) => {
     dispatch(setSearchValue(e.target.value));
   };
 
+  /**
+   * @param {event} e
+   */
+  const handleListClicked = (e) => {
+    const keyword = e.target.innerHTML;
+    const searchList = POKE_LIST.filter((pokemon) => {
+      return pokemon.korean_name.includes(keyword);
+    });
+    dispatch(setPokemonList(searchList));
+    dispatch(setSearchValue(keyword));
+    setAutoFill([]);
+  };
+
   return (
     <>
       <Background>
@@ -133,7 +135,7 @@ const SearchBox = ({}) => {
             onKeyDown={enterHandler}
             placeholder="포켓몬 입력!"
           />
-          <BtnBox onClick={searchHandler}>
+          <BtnBox onClick={() => searchHandler(searchValue)}>
             <img src={SEARCH} alt="" />
           </BtnBox>
         </InputBox>
